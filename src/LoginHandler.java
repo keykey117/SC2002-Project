@@ -16,7 +16,8 @@ public class LoginHandler {
      * @return Student/Supervisor/FYP Coordinator module depending on the user
      */
     public void login(){
-        //user input
+
+        // initialize modules
 
         do {
             System.out.println("\n----------------------------");
@@ -29,11 +30,20 @@ public class LoginHandler {
 
             // System.out.println(CredentialDB.getInstance().getPassword(username));
             // todo encapsulate this class into a user module OR check role and load the different modules from here
-            if (!password.equals(CredentialDB.getInstance().getPassword(username))){
+            if (!password.equals(CredentialDB.getInstance("credentials.txt").getPassword(username))){
                 System.out.println("\nError: Invalid Credential");
                 return;
             } else {
                 System.out.println("\nLogged in. Welcome " + username + ".");
+                if (CredentialDB.getInstance("credentials.txt").getRole(username) == "student"){
+                    // run studentModule
+                } else if (CredentialDB.getInstance("credentials.txt").getRole(username) == "supervisor") {
+                    // run supervisorModule
+                }
+                else{
+                    // run fypCoordinator module
+                }
+
                 return;
             }
         } while (true);

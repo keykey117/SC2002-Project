@@ -18,7 +18,6 @@ public class Credential {
 
     //Constructor
     /**
-     * Creates a new Credential for a new Admin account
      * @param username this Credential's new username
      * @param password this Credential's new password
      * @param role this Credential's new role
