@@ -14,7 +14,7 @@ public class FYPManager {
             Scanner sc = new Scanner(System.in);
 
             // testing this
-            LoginHandler loginHandler = new LoginHandler();
+            LoginModule loginModule = new LoginModule();
             System.out.println("Welcome to our FYPManager program");
             int loginChoice = 0;
 
@@ -35,7 +35,7 @@ public class FYPManager {
                 }
                 sc.nextLine();
                 switch (loginChoice) {
-                    case 1 -> loginHandler.login();
+                    case 1 -> loginModule.run();
                     case 2 -> System.out.println("Exiting system...");
                     default -> System.out.println("Invalid Choice.");
                 }

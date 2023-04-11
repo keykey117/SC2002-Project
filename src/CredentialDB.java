@@ -7,20 +7,19 @@ import java.util.Set;
 public class CredentialDB {
 
     private final Map<String, Credential> credentialMap;
-    private final String filePath;
+    private final String filePath = "credentials.txt";
     private final TxtReaderWriter credentialReaderWriter;
 
     private static CredentialDB instance = null;
 
-    private CredentialDB(String filePath) {
-        this.filePath = filePath;
-        this.credentialReaderWriter = new TxtReaderWriter(filePath);
+    private CredentialDB() {
+        this.credentialReaderWriter = new TxtReaderWriter(this.filePath);
         this.credentialMap = loadCredentialMap(credentialReaderWriter.getRawData());
     }
 
-    public static CredentialDB getInstance(String filePath) {
+    public static CredentialDB getInstance() {
         if (instance == null) {
-            instance = new CredentialDB(filePath);
+            instance = new CredentialDB();
         }
         return instance;
     }
@@ -37,8 +36,8 @@ public class CredentialDB {
         return null;
     }
 
-    public String getRole(String role){
-        Credential credential = credentialMap.get(role);
+    public UserRole getRole(String username){
+        Credential credential = credentialMap.get(username);
         if (credential != null){
             return credential.getRole();
         }
@@ -48,7 +47,13 @@ public class CredentialDB {
     private Map<String, Credential> loadCredentialMap(ArrayList<String[]> rawData) {
         Map<String, Credential> credentialMap = new HashMap<>();
         for (String[] line : rawData) {
-            Credential credential = new Credential(line[0], line[1], line[2]);
+            UserRole user = switch(line[2]){
+                case "student" -> UserRole.STUDENT;
+                case "supervisor" -> UserRole.SUPERVISOR;
+                case "fypcoordinator" -> UserRole.COORDINATOR;
+                default -> UserRole.STUDENT;
+            };
+            Credential credential = new Credential(line[0], line[1], user);
             credentialMap.put(line[0], credential);
         }
         return credentialMap;
@@ -60,7 +65,7 @@ public class CredentialDB {
         Set<String> keys = credentialMap.keySet();
         for (String key : keys) {
             Credential credential = credentialMap.get(key);
-            String[] out = new String[]{credential.getUsername(), credential.getPassword(), credential.getRole()};
+            String[] out = new String[]{credential.getUsername(), credential.getPassword(), String.valueOf(credential.getRole())};
             arrayList.add(out);
         }
         return (ArrayList<String[]>) arrayList;

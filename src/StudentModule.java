@@ -2,15 +2,17 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class StudentModule implements Module{
-    /**
-     * Creates a Scanner object to allow for user inputs
-     */
+
+
+    private Student student;
+
+    public StudentModule(Student student){
+        this.student = student;
+    };
     public void run(){
     Scanner sc = new Scanner(System.in);
-    // Initialize module
-    // todo
 
-    // Menu of choices the customer can choose from
+    // Choices student can make
     int choice = -1;
         while (choice != 7) {
         System.out.println("\n--------------Student Panel--------------");
@@ -36,12 +38,12 @@ public class StudentModule implements Module{
         sc.nextLine();
 
         switch (choice) {
-            // todo case 1 -> allProjectsModule.run();
-            // todo case 2 -> // todo specialOccasionModule.run();
-            // todo case 3 -> // todo sysMovieModule.run();
-            // todo case 4 -> // todo sysShowtimeModule.run();
-            // todo case 5  -> // todo sysListingOptionsModule.run();
-            // todo case 6 -> // todo
+            // todo case 1 ->
+            // todo case 2 ->
+            // todo case 3 ->
+            // todo case 4 ->
+            // todo case 5  ->
+            // todo case 6 ->
             case 7 -> System.out.println("Signing out of student module...");
             default -> System.out.println("Invalid choice!");
         }

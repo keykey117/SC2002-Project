@@ -14,7 +14,7 @@ public class Credential {
     /**
      * The role of the account in String datatype
      */
-    private String role;
+    private UserRole role;
 
     //Constructor
     /**
@@ -22,7 +22,7 @@ public class Credential {
      * @param password this Credential's new password
      * @param role this Credential's new role
      */
-    public Credential(String username, String password, String role) {
+    public Credential(String username, String password, UserRole role) {
         this.username = username;
         this.password = password;
         this.role = role;
@@ -39,9 +39,9 @@ public class Credential {
 
     /**
      * Gets this Credential's role
-     * @return this Credential's role in AdminRole datatype
+     * @return this Credential's role in UserRole datatype
      */
-    public String getRole() {
+    public UserRole getRole() {
         return this.role;
     }
 

@@ -15,7 +15,7 @@ public class LoginHandler {
      * Main login function which prompts user for username and password before verifying the password before allowing further user access.
      * @return Student/Supervisor/FYP Coordinator module depending on the user
      */
-    public void login(){
+    public User login(){
 
         // initialize modules
 
@@ -27,24 +27,16 @@ public class LoginHandler {
             String password = sc.nextLine();
             System.out.println("----------------------------");
 
+            User user = new User(username);
+
 
             // System.out.println(CredentialDB.getInstance().getPassword(username));
-            // todo encapsulate this class into a user module OR check role and load the different modules from here
-            if (!password.equals(CredentialDB.getInstance("credentials.txt").getPassword(username))){
+            if (!user.validate(password )){
                 System.out.println("\nError: Invalid Credential");
-                return;
+                return null;
             } else {
                 System.out.println("\nLogged in. Welcome " + username + ".");
-                if (CredentialDB.getInstance("credentials.txt").getRole(username) == "student"){
-                    // run studentModule
-                } else if (CredentialDB.getInstance("credentials.txt").getRole(username) == "supervisor") {
-                    // run supervisorModule
-                }
-                else{
-                    // run fypCoordinator module
-                }
-
-                return;
+                return user;
             }
         } while (true);
     }
