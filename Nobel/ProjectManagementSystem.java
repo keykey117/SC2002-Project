@@ -58,4 +58,43 @@ public class ProjectManagementSystem {
         project.setStatus(ProjectStatus.AVAILABLE);
         return true;
     }
+
+    // Student reserves a project
+    public boolean studentReserveProject(Project project, Student student) {
+        // check if project is available
+        if (project.getStatus() == ProjectStatus.AVAILABLE) {
+            // reserve the project for the student
+            boolean reserved = reserveProject(project, student);
+            if (reserved) {
+                // remove the project from available project list
+                projects.remove(project);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Student allocates a project
+    public boolean studentAllocateProject(Project project, Student student) {
+        // check if project is reserved by the student
+        if (project.getStatus() == ProjectStatus.RESERVED && project.getStudentID() == student.getStudentID()) {
+            // allocate the project to the student
+            boolean allocated = allocateProject(project);
+            if (allocated) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Student rejects a project
+    public boolean studentRejectProject(Project project, Student student) {
+        // check if project is reserved by the student
+        if (project.getStatus() == ProjectStatus.RESERVED && project.getStudentID() == student.getStudentID()) {
+            // set the project status back to available
+            project.setStatus(ProjectStatus.AVAILABLE);
+            return true;
+        }
+        return false;
+    }
 }
