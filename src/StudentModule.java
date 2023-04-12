@@ -5,7 +5,6 @@ public class StudentModule implements Module{
 
 
     private Student student;
-
     public StudentModule(Student student){
         this.student = student;
     };

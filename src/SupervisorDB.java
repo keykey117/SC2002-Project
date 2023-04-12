@@ -5,8 +5,11 @@ import java.util.Map;
 import java.util.Set;
 
 public class SupervisorDB {
-
+    /**
+     * HashMap containing all the Supervisors
+     */
     private final Map<String, Supervisor> supervisorMap;
+
     private final String filePath = "supervisor.txt";
     private final TxtReaderWriter supervisorReaderWriter;
 
@@ -26,6 +29,10 @@ public class SupervisorDB {
 
     public void close() {
         supervisorReaderWriter.setRawData(parseSupervisorMap());
+    }
+
+    public Supervisor getSupervisor(String supervisorID){
+        return supervisorMap.get(supervisorID);
     }
 
     private Map<String, Supervisor> loadSupervisorMap(ArrayList<String[]> rawData) {

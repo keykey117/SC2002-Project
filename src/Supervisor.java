@@ -6,8 +6,6 @@ public class Supervisor {
     private String supervisorID;
 
     // include project implementation
-    // private Project project;
-
 
     // constructor
     public Supervisor(String name, String email, String supervisorID){

@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 /**
  *
- * @author dingjiang
- * @version 1.0.0 Nov 13, 2022
  */
 public class LoginHandler {
     /**
@@ -29,9 +27,7 @@ public class LoginHandler {
 
             User user = new User(username);
 
-
-            // System.out.println(CredentialDB.getInstance().getPassword(username));
-            if (!user.validate(password )){
+            if (!user.validate(password)){
                 System.out.println("\nError: Invalid Credential");
                 return null;
             } else {
