@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Student {
+public class Student implements Password{
     private String name;
     private String email;
     private String studentID;

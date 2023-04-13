@@ -37,6 +37,7 @@ public class StudentModule implements Module{
         sc.nextLine();
 
         switch (choice) {
+            case 1 -> student.setPassword(student.getStudentID());
             // todo case 1 ->
             // todo case 2 ->
             // todo case 3 ->

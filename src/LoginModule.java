@@ -3,6 +3,11 @@ public class LoginModule implements Module{
         LoginHandler loginHandler = new LoginHandler();
         User user = loginHandler.login();
 
+        // Login fails
+        if (user == null) {
+            System.out.println("Login failed, exiting login module now");
+            return;
+        }
         switch (user.getUserRole()){
             case STUDENT:
                 Student student = StudentDB.getInstance().getStudent(user.getUserID());

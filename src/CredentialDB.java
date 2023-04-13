@@ -44,6 +44,14 @@ public class CredentialDB {
         return null;
     }
 
+    public Credential getCredential(String username){
+        Credential credential = credentialMap.get(username);
+        if (credential != null){
+            return credential;
+        }
+        return null;
+    }
+
     private Map<String, Credential> loadCredentialMap(ArrayList<String[]> rawData) {
         Map<String, Credential> credentialMap = new HashMap<>();
         for (String[] line : rawData) {

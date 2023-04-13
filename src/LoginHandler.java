@@ -11,28 +11,30 @@ public class LoginHandler {
 
     /**
      * Main login function which prompts user for username and password before verifying the password before allowing further user access.
-     * @return Student/Supervisor/FYP Coordinator module depending on the user
+     * @return User module
      */
     public User login(){
 
-        // initialize modules
-
         do {
-            System.out.println("\n----------------------------");
-            System.out.println("\nPlease enter UserID:");
-            String username = sc.nextLine();
-            System.out.println("Please enter Password:");
-            String password = sc.nextLine();
-            System.out.println("----------------------------");
+            try {
+                System.out.println("\n----------------------------");
+                System.out.println("\nPlease enter UserID:");
+                String username = sc.nextLine();
+                System.out.println("Please enter Password:");
+                String password = sc.nextLine();
+                System.out.println("----------------------------");
 
-            User user = new User(username);
+                User user = new User(username);
 
-            if (!user.validate(password)){
-                System.out.println("\nError: Invalid Credential");
-                return null;
-            } else {
-                System.out.println("\nLogged in. Welcome " + username + ".");
-                return user;
+                if (!user.validate(password)) {
+                    System.out.println("\nError: Invalid Credential");
+                    return null;
+                } else {
+                    System.out.println("\nLogged in. Welcome " + username + ".");
+                    return user;
+                }
+            } catch (Exception error){
+                System.out.print(error.getMessage());
             }
         } while (true);
     }

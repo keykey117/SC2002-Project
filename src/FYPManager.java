@@ -8,12 +8,8 @@ public class FYPManager {
      */
     public static void main(String[] args) {
 
-            /**
-             * Creates a new scanner to accept user input
-             */
             Scanner sc = new Scanner(System.in);
 
-            // testing this
             LoginModule loginModule = new LoginModule();
             System.out.println("Welcome to our FYPManager program");
             int loginChoice = 0;
@@ -33,6 +29,7 @@ public class FYPManager {
                     sc.nextLine();
                     continue;
                 }
+
                 sc.nextLine();
                 switch (loginChoice) {
                     case 1 -> loginModule.run();

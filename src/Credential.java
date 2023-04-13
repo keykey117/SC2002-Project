@@ -55,7 +55,6 @@ public class Credential {
      */
     public boolean setPassword(String oldPassword, String newPassword) {
         //User needs to provide the correct old password to change password
-        //To do: implement password checks to ensure that password is 8 char, alphanumeric, contains capital letters and symbols
         if (this.password.equals(oldPassword)) {
             this.password = newPassword;
             return true;
