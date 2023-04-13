@@ -27,9 +27,11 @@ public class LoginHandler {
                 User user = new User(username);
 
                 if (!user.validate(password)) {
+                    // System.out.println(password);
                     System.out.println("\nError: Invalid Credential");
                     return null;
                 } else {
+                    System.out.println("Potato");
                     System.out.println("\nLogged in. Welcome " + username + ".");
                     return user;
                 }

@@ -37,9 +37,11 @@ public class StudentModule implements Module{
         sc.nextLine();
 
         switch (choice) {
+            System.out.println(student.getName());
             case 1 -> student.setPassword(student.getStudentID());
             // todo case 1 ->
             // todo case 2 ->
+            case 2 -> 
             // todo case 3 ->
             // todo case 4 ->
             // todo case 5  ->
