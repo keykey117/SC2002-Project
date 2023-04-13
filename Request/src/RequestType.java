@@ -1,5 +1,5 @@
 public enum RequestType {
-    Change_Title,
-    Deregister_FYP,
-    Register_FYP
+    CHANGE_TITLE,
+    DEREGISTER_FYP,
+    REGISTER_FYP
 }
