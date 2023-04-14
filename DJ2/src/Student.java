@@ -5,6 +5,8 @@ public class Student implements Password, ProjectHandler{
     private String email;
     private String studentID;
 
+    private Project project;
+
     // include project implementation
     // private Project project;
 
@@ -14,6 +16,7 @@ public class Student implements Password, ProjectHandler{
         this.name = name;
         this.email = email;
         this.studentID = studentID;
+        this.project = null;
     }
 
     public String getName(){

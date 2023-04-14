@@ -159,7 +159,7 @@ public interface ProjectHandler {
        }
    }
 
-   default void modifyProjTitle(Supervisor supervisor){
+   default ArrayList<String> viewSelfProj(Supervisor supervisor){
        LinkedHashMap<String, Project> projects = ProjectDB.getInstance().getProjectLinkedHashMap();
        ArrayList<String> tempProjID = new ArrayList<>();
        for (Project project : projects.values()) {
@@ -171,6 +171,13 @@ public interface ProjectHandler {
                tempProjID.add(Integer.toString(project.getProjectID()));
            }
        }
+       return tempProjID;
+   }
+
+   default void modifyProjTitle(Supervisor supervisor){
+       LinkedHashMap<String, Project> projects = ProjectDB.getInstance().getProjectLinkedHashMap();
+       ArrayList<String> tempProjID = new ArrayList<>();
+       tempProjID = viewSelfProj(supervisor);
        try{
            System.out.println("Enter the Project ID to modify: ");
            String projectID = sc.nextLine();
