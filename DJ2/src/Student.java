@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Student implements Password{
+public class Student implements Password, ProjectHandler{
     private String name;
     private String email;
     private String studentID;
@@ -35,8 +35,6 @@ public class Student implements Password{
     public void setEmail(String email){
         this.email = email;
     }
-
-
 
 
 

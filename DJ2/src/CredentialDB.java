@@ -7,7 +7,7 @@ import java.util.Set;
 public class CredentialDB {
 
     private final Map<String, Credential> credentialMap;
-    private final String filePath = "../credentials.txt";
+    private final String filePath = "credentials.txt";
     private final TxtReaderWriter credentialReaderWriter;
 
     private static CredentialDB instance = null;

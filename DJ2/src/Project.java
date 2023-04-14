@@ -1,9 +1,12 @@
+/**
+ * Contains the individual details of each Project
+ */
 public class Project {
     private int projectID;
     private String supervisorName;
     private String supervisorEmail;
     private String projectTitle;
-    private int studentID;
+    private String studentID;
     private String studentName;
     private String studentEmail;
     private ProjectStatus status;
@@ -13,7 +16,7 @@ public class Project {
         this.supervisorName = supervisorName;
         this.supervisorEmail = supervisorEmail;
         this.projectTitle = projectTitle;
-        this.studentID = -1; // -1 indicates that no student is assigned yet
+        this.studentID = ""; // "" indicates that no student is assigned yet
         this.studentName = "";
         this.studentEmail = "";
         this.status = ProjectStatus.AVAILABLE;
@@ -22,6 +25,8 @@ public class Project {
     public int getProjectID() {
         return projectID;
     }
+
+    public void setID (int projectID) {this.projectID = projectID;}
 
     public String getSupervisorName() {
         return supervisorName;
@@ -35,11 +40,11 @@ public class Project {
         return projectTitle;
     }
 
-    public int getStudentID() {
+    public String getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(int studentID) {
+    public void setStudentID(String studentID) {
         this.studentID = studentID;
     }
 
@@ -103,3 +108,5 @@ public class Project {
         return sb.toString();
     }
 }
+
+
