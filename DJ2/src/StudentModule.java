@@ -42,7 +42,7 @@ public class StudentModule implements Module{
             // todo case 2 ->
             case 2 -> student.printAvailProj();
             // todo case 3 ->
-            case 3 -> student.selectProj();
+//            case 3 -> student.selectProj();
             // todo case 4 ->
             // todo case 5  ->
             // todo case 6 ->

@@ -27,6 +27,8 @@ public class ProjectDB {
         return projectLinkedHashMap;
     }
 
+    public Project getProject(int projectID) {return projectLinkedHashMap.get(projectID);}
+
     public void printAllProjects() {
         LinkedHashMap<String, Project> projects = ProjectDB.getInstance().getProjectLinkedHashMap();
         for (Project project: projects.values()) {

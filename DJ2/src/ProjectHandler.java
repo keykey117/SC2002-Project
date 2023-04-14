@@ -1,10 +1,6 @@
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public interface ProjectHandler {
     /**
@@ -46,18 +42,27 @@ public interface ProjectHandler {
         }
     }
 
-    default boolean reserveProject(int projectID, int studentID){
+    default boolean reserveProject(int projectID, String studentID){
+        // Check projectID against HashMap
+//        LinkedHashMap<String, Project> projects = ProjectDB.getInstance().getProjectLinkedHashMap();
+//        Project project = projects.get(projectID);
+
+        Project project = ProjectDB.getInstance().getProject(projectID);
+        Student students = StudentDB.getInstance().getStudent(studentID);
+
+        // Change Project status
         if(project.getStatus()==ProjectStatus.AVAILABLE){
             project.setStatus(ProjectStatus.RESERVED);
-            project.setStudentID(student.getStudentID());
-            project.setStudentName(student.getName());
-            project.setStudentEmail(student.getEmail());
+            project.setStudentID(students.getStudentID());
+            project.setStudentName(students.getName());
+            project.setStudentEmail(students.getEmail());
             return true;
         }
         return false;
     }
 
-    default boolean allocateProject(Project project) {
+    default boolean allocateProject(int projectID) {
+        Project project = ProjectDB.getInstance().getProject(projectID);
         if (project.getStatus() == ProjectStatus.RESERVED) {
             project.setStatus(ProjectStatus.ALLOCATED);
             return true;
@@ -65,7 +70,8 @@ public interface ProjectHandler {
         return false;
     }
 
-    default boolean deregisterProject(Project project) {
+    default boolean deregisterProject(int projectID) {
+        Project project = ProjectDB.getInstance().getProject(projectID);
         if (project.getStatus() == ProjectStatus.ALLOCATED) {
             project.setStudentID("");
         }
@@ -73,41 +79,43 @@ public interface ProjectHandler {
         return true;
     }
 
-    default boolean studentReserveProject(Project project, Student student) {
-        // check if project is available
-        if (project.getStatus() == ProjectStatus.AVAILABLE) {
-            // reserve the project for the student
-            boolean reserved = reserveProject(project, student);
-            if (reserved) {
-                // remove the project from available project list
-                projects.remove(project);
-                return true;
-            }
-        }
-        return false;
-    }
+//    default boolean studentReserveProject(int projectID, String studentID) {
+//        Project project = ProjectDB.getInstance().getProject(projectID);
+//        Student students = StudentDB.getInstance().getStudent(studentID);
+//        // check if project is available
+//        if (project.getStatus() == ProjectStatus.AVAILABLE) {
+//            // reserve the project for the student
+//            boolean reserved = reserveProject(project, students);
+//            if (reserved) {
+//                // remove the project from available project list
+//                projects.remove(projects);
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
-    default boolean studentAllocateProject(Project project, Student student) {
-        // check if project is reserved by the student
-        if (project.getStatus() == ProjectStatus.RESERVED && project.getStudentID() == student.getStudentID()) {
-            // allocate the project to the student
-            boolean allocated = allocateProject(project);
-            if (allocated) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    default boolean studentRejectProject(Project project, Student student) {
-        // check if project is reserved by the student
-        if (project.getStatus() == ProjectStatus.RESERVED && project.getStudentID() == student.getStudentID()) {
-            // set the project status back to available
-            project.setStatus(ProjectStatus.AVAILABLE);
-            return true;
-        }
-        return false;
-    }
+//    default boolean studentAllocateProject(Project project, Student student) {
+//        // check if project is reserved by the student
+//        if (project.getStatus() == ProjectStatus.RESERVED && project.getStudentID() == student.getStudentID()) {
+//            // allocate the project to the student
+//            boolean allocated = allocateProject(project);
+//            if (allocated) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    default boolean studentRejectProject(Project project, Student student) {
+//        // check if project is reserved by the student
+//        if (project.getStatus() == ProjectStatus.RESERVED && project.getStudentID() == student.getStudentID()) {
+//            // set the project status back to available
+//            project.setStatus(ProjectStatus.AVAILABLE);
+//            return true;
+//        }
+//        return false;
+//    }
 
 
     
