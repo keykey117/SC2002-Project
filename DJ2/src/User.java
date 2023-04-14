@@ -1,26 +1,36 @@
-public class User {
-    private String userID;
+import java.util.ArrayList;
 
-    private UserRole userRole;
+public abstract class User implements Password, ProjectHandler {
+    protected String name;
+    protected String email;
+    protected String userID;
 
-    public User (String userID) {
+    // constructor
+    public User(String name, String email, String userID) {
+        this.name = name;
+        this.email = email;
         this.userID = userID;
-        setUserRole(CredentialDB.getInstance().getRole(userID));
     }
 
-    public boolean validate(String password){
-        return password.equals(CredentialDB.getInstance().getPassword(this.userID));
+    public String getName() {
+        return this.name;
     }
 
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
-    }
-
-    public UserRole getUserRole() {
-        return userRole;
+    public String getEmail() {
+        return this.email;
     }
 
     public String getUserID() {
-        return userID;
+        return this.userID;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    // implement the methods from the Password and ProjectHandler interfaces here
 }

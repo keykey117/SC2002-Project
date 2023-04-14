@@ -33,7 +33,7 @@ public class SupervisorModule implements Module{
             sc.nextLine();
 
             switch (choice) {
-                case 1 -> supervisor.setPassword(supervisor.getSupervisorID());
+                case 1 -> supervisor.setPassword(supervisor.getUserID());
                 case 2 -> supervisor.addProject(supervisor);
                 case 3 -> supervisor.modifyProjTitle(supervisor);
                 // todo case 3 ->

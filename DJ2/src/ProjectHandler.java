@@ -13,7 +13,7 @@ public interface ProjectHandler {
         LinkedHashMap<String, Project> projects = ProjectDB.getInstance().getProjectLinkedHashMap();
         int projectID = projects.size() + 1;
         String supervisorName = supervisor.getName();
-        String supervisorID = supervisor.getSupervisorID();
+        String supervisorID = supervisor.getUserID();
         String supervisorEmail = supervisor.getEmail();
         System.out.println("Enter Project Title");
         String projectTitle = sc.nextLine();
@@ -64,7 +64,7 @@ public interface ProjectHandler {
         // Change Project status
         if(project.getStatus()==ProjectStatus.AVAILABLE){
             project.setStatus(ProjectStatus.RESERVED);
-            project.setStudentID(students.getStudentID());
+            project.setStudentID(students.getUserID());
             project.setStudentName(students.getName());
             project.setStudentEmail(students.getEmail());
             return true;
@@ -132,7 +132,7 @@ public interface ProjectHandler {
         // check if project is reserved by the student
         Project project = ProjectDB.getInstance().getProject(projectID);
         Student students = StudentDB.getInstance().getStudent(studentID);
-        if (project.getStatus() == ProjectStatus.RESERVED && project.getStudentID() == students.getStudentID()) {
+        if (project.getStatus() == ProjectStatus.RESERVED && project.getStudentID() == students.getUserID()) {
             // set the project status back to available
             project.setStatus(ProjectStatus.AVAILABLE);
             return true;
@@ -145,14 +145,14 @@ public interface ProjectHandler {
        LinkedHashMap<String, Project> projects = ProjectDB.getInstance().getProjectLinkedHashMap();
        if(supervisor.getProjCount() > 1){
            for (Project project : projects.values()) {
-               if (project.getSupervisorID() == supervisor.getSupervisorID() && project.getStatus() == ProjectStatus.AVAILABLE) {
+               if (project.getSupervisorID() == supervisor.getUserID() && project.getStatus() == ProjectStatus.AVAILABLE) {
                    project.setStatus(ProjectStatus.UNAVAILABLE);
                }
            }
        }
        else{
            for (Project project: projects.values()){
-               if (project.getSupervisorID() == supervisor.getSupervisorID() && project.getStatus() == ProjectStatus.UNAVAILABLE) {
+               if (project.getSupervisorID() == supervisor.getUserID() && project.getStatus() == ProjectStatus.UNAVAILABLE) {
                    project.setStatus(ProjectStatus.AVAILABLE);
                }
            }
@@ -165,7 +165,7 @@ public interface ProjectHandler {
        for (Project project : projects.values()) {
 //           System.out.println(project.getSupervisorID());
 //           System.out.println(supervisor.getSupervisorID());
-           if (project.getSupervisorID().equals(supervisor.getSupervisorID())) {
+           if (project.getSupervisorID().equals(supervisor.getUserID())) {
                // Print all projects of that supervisorID
                System.out.print(project.toString());
                tempProjID.add(Integer.toString(project.getProjectID()));

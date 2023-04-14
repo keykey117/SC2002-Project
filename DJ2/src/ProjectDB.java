@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class ProjectDB {
     private LinkedHashMap<String, Project> projectLinkedHashMap;
-    private final String filePath = "projects2.txt";
+    private final String filePath = "./data/projects2.txt";
     private final TxtReaderWriter projectReaderWriter;
 
     private static ProjectDB instance = null;

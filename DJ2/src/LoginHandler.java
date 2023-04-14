@@ -13,7 +13,7 @@ public class LoginHandler {
      * Main login function which prompts user for username and password before verifying the password before allowing further user access.
      * @return User module
      */
-    public User login(){
+    public Credential login(){
 
         do {
             try {
@@ -24,14 +24,17 @@ public class LoginHandler {
                 String password = sc.nextLine();
                 System.out.println("----------------------------");
 
-                User user = new User(username);
+                Credential credential = CredentialDB.getInstance().getCredential(username);
 
-                if (!user.validate(password)) {
+                if (credential == null){
+                    System.out.println("\nError: Invalid Credential");
+                }
+                else if(!credential.check(password)) {
                     System.out.println("\nError: Invalid Credential");
                     return null;
                 } else {
                     System.out.println("\nLogged in. Welcome " + username + ".");
-                    return user;
+                    return credential;
                 }
             } catch (Exception error){
                 System.out.print(error.getMessage());

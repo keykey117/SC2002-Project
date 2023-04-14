@@ -38,7 +38,7 @@ public class StudentModule implements Module{
 
         switch (choice) {
             // todo case 1 ->
-            case 1 -> student.setPassword(student.getStudentID());
+            case 1 -> student.setPassword(student.getUserID());
             // todo case 2 ->
             case 2 -> student.printAvailProj();
             // todo case 3 ->

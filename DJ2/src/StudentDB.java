@@ -7,7 +7,7 @@ import java.util.Set;
 public class StudentDB {
 
     private final Map<String, Student> studentMap;
-    private final String filePath = "students.txt";
+    private final String filePath = "./data/students.txt";
     private final TxtReaderWriter studentReaderWriter;
 
     private static StudentDB instance = null;

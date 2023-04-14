@@ -10,7 +10,7 @@ public class SupervisorDB {
      */
     private final Map<String, Supervisor> supervisorMap;
 
-    private final String filePath = "supervisor.txt";
+    private final String filePath = "./data/supervisor.txt";
     private final TxtReaderWriter supervisorReaderWriter;
 
     private static SupervisorDB instance = null;
