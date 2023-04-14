@@ -6,6 +6,7 @@ public class Request_ChangeTitle extends Request{
         this.newTitle = newTitle;
     }
 
+    //Only supervisor can approve or reject title change
     @Override
     public void approve() {
         super.approve();
