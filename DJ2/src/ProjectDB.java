@@ -45,9 +45,10 @@ public class ProjectDB {
         for (String[] line : rawData) {
             int projID = Integer.parseInt(line[0]);
             String projSupervisor = line[1];
+            String projSupervisorID = line[2].split("@")[0];
             String projSupervisorEmail = line[2];
             String projTitle = line[3];
-            Project project = new Project(projID, projSupervisor, projSupervisorEmail, projTitle);
+            Project project = new Project(projID, projSupervisor, projSupervisorID, projSupervisorEmail, projTitle);
             projectLinkedHashMap.put(line[0], project);
         }
         return projectLinkedHashMap;
@@ -64,4 +65,5 @@ public class ProjectDB {
 //        }
 //        return (ArrayList<String[]>) arrayList;
 //    }
+
 }

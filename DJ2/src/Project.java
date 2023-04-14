@@ -5,15 +5,17 @@ public class Project {
     private int projectID;
     private String supervisorName;
     private String supervisorEmail;
+    private String supervisorID;
     private String projectTitle;
     private String studentID;
     private String studentName;
     private String studentEmail;
     private ProjectStatus status;
 
-    public Project(int projectID, String supervisorName, String supervisorEmail, String projectTitle) {
+    public Project(int projectID, String supervisorName, String supervisorID, String supervisorEmail, String projectTitle) {
         this.projectID = projectID;
         this.supervisorName = supervisorName;
+        this.supervisorID = supervisorID;
         this.supervisorEmail = supervisorEmail;
         this.projectTitle = projectTitle;
         this.studentID = ""; // "" indicates that no student is assigned yet
@@ -30,6 +32,10 @@ public class Project {
 
     public String getSupervisorName() {
         return supervisorName;
+    }
+
+    public String getSupervisorID(){
+        return supervisorID;
     }
 
     public String getSupervisorEmail() {
@@ -84,8 +90,8 @@ public class Project {
         return status == ProjectStatus.ALLOCATED;
     }
 
-    public boolean isDeregistered() {
-        return status == ProjectStatus.DEREGISTERED;
+    public void setProjectTitle(String projectTitle){
+        this.projectTitle = projectTitle;
     }
 
     @Override
@@ -102,8 +108,6 @@ public class Project {
         } else if (status == ProjectStatus.ALLOCATED) {
             sb.append("Status: Allocated\n");
             sb.append("Allocated to: ").append(studentName).append(", ").append(studentEmail).append("\n");
-        } else if (status == ProjectStatus.DEREGISTERED) {
-            sb.append("Status: Deregistered\n");
         }
         return sb.toString();
     }

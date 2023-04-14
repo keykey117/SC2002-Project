@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 
-public class Supervisor {
+public class Supervisor implements Password, ProjectHandler{
     private String name;
     private String email;
     private String supervisorID;
+
+    private int projCount;
 
     // include project implementation
 
@@ -12,6 +14,7 @@ public class Supervisor {
         this.name = name;
         this.email = email;
         this.supervisorID = supervisorID;
+        this.projCount = 0;
     }
 
     public String getName(){
@@ -26,6 +29,8 @@ public class Supervisor {
         return this.supervisorID;
     }
 
+    public int getProjCount(){ return this.projCount;}
+
     public void setName(String name){
         this.name = name;
     }
@@ -35,8 +40,7 @@ public class Supervisor {
     }
 
 
-
-
-
+    public void addProjCount(){this.projCount++;}
+    public void subProjCount(){this.projCount--;}
 
 }

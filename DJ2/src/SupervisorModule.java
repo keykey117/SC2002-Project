@@ -33,8 +33,9 @@ public class SupervisorModule implements Module{
             sc.nextLine();
 
             switch (choice) {
-                // todo case 1 ->
-                // todo case 2 ->
+                case 1 -> supervisor.setPassword(supervisor.getSupervisorID());
+                case 2 -> supervisor.addProject(supervisor);
+                case 3 -> supervisor.modifyProjTitle(supervisor);
                 // todo case 3 ->
                 case 4 -> System.out.println("Signing out of supervisor module...");
                 default -> System.out.println("Invalid choice!");
