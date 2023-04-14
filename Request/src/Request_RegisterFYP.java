@@ -10,7 +10,8 @@ public class Request_RegisterFYP extends Request{
     @Override
     public void approve() {
         super.approve();
-        //add FYP to student and FYP is allocated
+        //assign FYP to student
+        //FYP is marked as allocated
     }
 
     @Override
