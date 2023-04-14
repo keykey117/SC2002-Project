@@ -75,4 +75,10 @@ public class Request {
         return sb.toString();
     }
 
+    public void approve() {
+        reqStatus = RequestStatus.APPROVED;
+    }
+    public void reject() {
+        reqStatus = RequestStatus.REJECTED;
+    }
 }

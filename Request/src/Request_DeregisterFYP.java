@@ -5,4 +5,16 @@ public class Request_DeregisterFYP extends Request {
         super(SenderID, ReceiverID, reqType);
         this.projectID = projectID;
     }
+
+    @Override
+    public void approve() {
+        super.approve();
+        //deregister project from SenderID
+    }
+
+    @Override
+    public void reject() {
+        super.reject();
+        //only for FYP coordinator
+    }
 }

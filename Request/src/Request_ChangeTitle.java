@@ -5,4 +5,15 @@ public class Request_ChangeTitle extends Request{
         super(SenderID, ReceiverID, reqType);
         this.newTitle = newTitle;
     }
+
+    @Override
+    public void approve() {
+        super.approve();
+        //change project title
+    }
+
+    @Override
+    public void reject() {
+        super.reject();
+    }
 }
