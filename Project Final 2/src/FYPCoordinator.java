@@ -25,6 +25,7 @@ public class FYPCoordinator extends Supervisor {
         // Implement logic to deregister a student from a project upon request
     }
 
+
     public void viewAllProjects() {
         List<Project> projects = FYPDB.getInstance().getProjects();
         for (Project project : projects){
@@ -35,25 +36,39 @@ public class FYPCoordinator extends Supervisor {
 
     public List<Project> generateProjectDetailsReport(Map<String, String> filters) {
         // Implement logic to generate a project details report based on the provided filters
-        return null;
     }
 
-    public List<Request> viewPendingRequests() {
+    public void printPendingRequests() {
         // Implement logic to return a list of pending requests sent by supervisors and students
-        return null;
+        List<Request> requests = this.GetIncomingRequest();
+        for (int i = 0; i < requests.size(); i++) {
+            if (requests.get(i).getReqStatus() == RequestStatus.PENDING) {
+                requests.get(i).toString();
+            }
+        }
+
     }
 
-    public void approveRequest(Request request) {
+    public void approve(Request request) {
         // Implement logic to approve the request sent by a supervisor or a student
+        request.approve();
+        //implement in Request
     }
 
     public void rejectRequest(Request request) {
         // Implement logic to reject the request sent by a supervisor or a student
+        request.reject();
     }
 
-    public List<Request> viewRequestHistory() {
+    public void PrintAllRequest() {
         // Implement logic to return a list of all requests handled by the FYP coordinator
-        return null;
+        System.out.println("ALL INCOMING REQUESTS:\n");
+        List<Request> incomingRequests = this.GetIncomingRequest();
+        for (int i = 0; i < incomingRequests.size(); i++) {
+            incomingRequests.get(i).toString();
+        }
     }
+
+
 }
 

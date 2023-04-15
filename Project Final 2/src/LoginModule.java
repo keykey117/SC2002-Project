@@ -35,16 +35,17 @@ public class LoginModule{
         System.out.println("Enter your password:");
         String password = sc.nextLine();
 
+
         // System.out.println("Hello World");
         // System.out.println(username);
         // System.out.println(password);
-
 
         // Check password
 
         switch(userType){
             case 1:
                 List<Student> studentList = FYPDB.getInstance().getStudents();
+
                 StudentModule studentModule = null;
                 for (Student student : studentList){
                     // String currentID = student.getID();
@@ -52,6 +53,7 @@ public class LoginModule{
                     // System.out.println(username);
                     if(username.equals(student.getID()) && password.equals(student.getPassword())){
                         // System.out.println("Testing Works");
+
                         studentModule = new StudentModule(student);
                         studentModule.run();
                     }
@@ -126,5 +128,9 @@ public class LoginModule{
         //     case COORDINATOR: break;
         //     default: break;
         // }
+
+
+
+    }
 
 }
