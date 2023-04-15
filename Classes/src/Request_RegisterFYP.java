@@ -10,6 +10,10 @@ public class Request_RegisterFYP extends Request {
 
     public void approve() {
         super.approve();
+        //TODO find student object using studentID
+        //allocate project to student
+        //TODO find project object using projectID
+        //mark project as allocated
     }
 
     public void reject() {
