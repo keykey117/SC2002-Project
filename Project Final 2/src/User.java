@@ -26,6 +26,14 @@ public class User {
         this.email = emailAddress;
     }
 
+    public String getID(){
+        return this.userID;
+    }
+
+    public String getPassword(){
+        return this.password;
+    }
+
     public boolean login(String userID, String password) {
         return this.userID.equals(userID) && this.password.equals(password);
     }
