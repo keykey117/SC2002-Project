@@ -40,6 +40,8 @@ public class Project {
         } else if (status == ProjectStatus.ALLOCATED) {
             sb.append("Status: Allocated\n");
             sb.append("Allocated to: ").append(student.getName()).append(", ").append(student.getEmail()).append("\n");
+        }else if (status == ProjectStatus.UNAVAILABLE){
+            sb.append("Status: Unavailable\n");
         }
         return sb.toString();
     }

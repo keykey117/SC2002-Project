@@ -41,9 +41,10 @@ public class Supervisor extends User {
     }
 
 
-    public void requestStudentTransfer(Project project, Supervisor newSupervisor, FYPCoordinator fypCoordinator) {
+    public void requestStudentTransfer(int projectID, String supervisorID) {
         // Implement the logic to send a request to the FYP coordinator to transfer a student to a replacement supervisor.
-        Request request = new Request_ChangeSupervisor(this.getID(), fypCoordinator.getID(), RequestType.CHANGE_TITLE, project.getProjectID(), newSupervisor.getID());
+        FYPCoordinator fypCoordinator = FYPDB.getInstance().getFypCoordinator().get(0);
+        Request request = new Request_ChangeSupervisor(this.getID(), fypCoordinator.getID(), RequestType.CHANGE_SUPERVISOR, projectID, supervisorID);
         fypCoordinator.addIncomingRequest(request);
         this.addOutgoingRequest(request);
     }
@@ -90,4 +91,43 @@ public class Supervisor extends User {
 
     }
 
+    public void addProjCount(){
+        this.projCount++;
+    }
+
+    public void subProjCount(){
+        this.projCount--;
+    }
+
+    public int getProjCount(){
+        return this.projCount;
+    }
+
+    public void makeProjectUnavailable(){
+        if(this.projCount < 2){
+            return;
+        }
+
+        FYPDB fypdb = FYPDB.getInstance();
+        List<Project> projects = fypdb.getProjectBySupID(this.getID());
+        for(Project project: projects){
+            if (project.getStatus() == ProjectStatus.AVAILABLE){
+                project.setStatus(ProjectStatus.UNAVAILABLE);
+            }
+        }
+    }
+
+    public void makeProjectAvailable(){
+        if(this.projCount > 1){
+            return;
+        }
+
+        FYPDB fypdb = FYPDB.getInstance();
+        List<Project> projects = fypdb.getProjectBySupID(this.getID());
+        for(Project project: projects){
+            if (project.getStatus() == ProjectStatus.UNAVAILABLE){
+                project.setStatus(ProjectStatus.AVAILABLE);
+            }
+        }
+    }
 }

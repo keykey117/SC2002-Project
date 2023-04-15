@@ -13,6 +13,10 @@ public class Request_ChangeTitle extends Request {
 
     public void approve() {
         super.approve();
+        FYPDB fypdb = FYPDB.getInstance();
+        Project project = fypdb.getProjectByID(this.getProjectID());
+        project.setTitle(newTitle);
+
     }
 
     public void reject() {

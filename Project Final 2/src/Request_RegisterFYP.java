@@ -10,13 +10,28 @@ public class Request_RegisterFYP extends Request {
 
     public void approve() {
         super.approve();
-        //TODO find student object using studentID
-        //allocate project to student
-        //TODO find project object using projectID
+        FYPDB fypdb = FYPDB.getInstance();
+
+        Student student = fypdb.getStudent(this.getSenderID());
+
         //mark project as allocated
+        Project project = fypdb.getProjectByID(this.getProjectID());
+        project.setStatus(ProjectStatus.ALLOCATED);
+        project.setStudent(student);
+
+        //allocate project to student
+        student.setProject(project);
+
+        // check whether supervisor has more than 2 projects
+        Supervisor supervisor = fypdb.getSupervisor(project.getSupervisor().getID());
+        supervisor.addProjCount();
+        supervisor.makeProjectUnavailable();
     }
 
     public void reject() {
         super.reject();
+        FYPDB fypdb = FYPDB.getInstance();
+        Project project = fypdb.getProjectByID(this.getProjectID());
+        project.setStatus(ProjectStatus.AVAILABLE);
     }
 }

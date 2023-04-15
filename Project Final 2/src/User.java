@@ -68,8 +68,41 @@ public class User {
     public List<Request> GetIncomingRequest() {
         return incoming_requests;
     }
+
     public List<Request> GetOutgoingRequest() {
         return outgoing_requests;
+    }
+
+    public Request getSpecificIncomingRequest(int reqID){
+        for (Request request: this.GetIncomingRequest()){
+            if (request.getReqID() == reqID){
+                return request;
+            }
+        }
+        return null;
+    }
+
+    public Request getSpecificOutgoingRequest(int reqID){
+        for (Request request: this.GetOutgoingRequest()){
+            if (request.getReqID() == reqID){
+                return request;
+            }
+        }
+        return null;
+    }
+
+    public void printPendingRequests() {
+        // Implement logic to return a list of pending requests
+        List<Request> requests = this.GetIncomingRequest();
+        for (int i = 0; i < requests.size(); i++) {
+            if (requests.get(i).getReqStatus() == RequestStatus.PENDING) {
+                System.out.println(requests.get(i).toString());
+            }
+        }
+
+    }
+
+    public void PrintAllRequest() {
     }
 
 }

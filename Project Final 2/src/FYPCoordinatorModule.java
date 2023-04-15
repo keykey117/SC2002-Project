@@ -41,7 +41,42 @@ public class FYPCoordinatorModule{
                     break;
                 case 2:
                     break;
+                case 3:
+                    // fix later: specfiic req type only!!!
+                    fypCoordinator.printPendingRequests();
+                    System.out.println("Enter reqID for approval:");
+                    try {
+                        int reqID = sc.nextInt();
+                        sc.nextLine();
+                        Request request = fypCoordinator.getSpecificIncomingRequest(reqID);
+                        if (request == null){
+                            System.out.println("Request not found");
+                            break;
+                        }
+
+                        System.out.println("Do you want to approve (Y/N)");
+                        String approve = sc.nextLine();
+                        if(approve.equals("Y")){
+                            request.approve();
+                            System.out.println("Request has been approved");
+                        }
+                        else if (approve.equals("N")){
+                            request.reject();
+                            System.out.println("Request has been rejected");
+                        }
+                        else{
+                            System.out.println("Invalid input");
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a valid integer.");
+                        sc.nextLine(); // consume the invalid input
+                    }
+
+                    break;
                 case 4:
+                    break;
+                case 5:
+                    fypCoordinator.generateProjectDetailsReport();
                     break;
                 case 7: System.out.println("Signing out of student module...");
                 default: System.out.println("Invalid choice!");

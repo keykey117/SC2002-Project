@@ -14,16 +14,18 @@ public class SupervisorModule {
 
         // Choices supervisor can make
         int choice = -1;
-        while (choice != 7) {
+        while (choice != 9) {
             System.out.println("\n--------------Supervisor Panel--------------");
             System.out.println("Option Available: (1-6):");
             System.out.println("(1) Change Password");
             System.out.println("(2) View own Projects");
             System.out.println("(3) Modify own Project Title");
             System.out.println("(4) Add new Project");
-            System.out.println("(5) Request");
-            System.out.println("(6) Enter FYP Module");
-            System.out.println("(7) Quit Supervisor Panel");
+            System.out.println("(5) Request to change Supervisor");
+            System.out.println("(6) Approve/Reject Requests");
+            System.out.println("(7) View all requests made");
+            System.out.println("(8) Enter FYP Module (ONLY FYPCOORDINATOR)");
+            System.out.println("(9) Quit Supervisor Panel");
             System.out.println("---------------------------------------");
             System.out.print("\nChoice: ");
 
@@ -79,13 +81,56 @@ public class SupervisorModule {
                     String projTitle = sc.nextLine();
                     supervisor.createProject(projTitle);
                     break;
+                case 5:
+                    try {
+                        System.out.println("Enter the projectID that you want to transfer");
+                        int transProjectID = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Enter the new supervisorID that you want to transfer");
+                        String supervisorID = sc.nextLine();
+                        supervisor.requestStudentTransfer(transProjectID, supervisorID);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a valid number.");
+                    }
+
+
+                    break;
                 case 6:
+                    supervisor.printPendingRequests();
+                    System.out.println("Enter reqID for approval:");
+                    try {
+                        int reqID = sc.nextInt();
+                        sc.nextLine();
+                        Request request = supervisor.getSpecificIncomingRequest(reqID);
+                        if (request == null){
+                            System.out.println("Request not found");
+                            break;
+                        }
+                        System.out.println("Do you want to approve (Y/N)");
+                        String approve = sc.nextLine();
+                        if(approve.equals("Y")){
+                            request.approve();
+                            System.out.println("Request has been approved");
+                        }
+                        else if (approve.equals("N")){
+                            request.reject();
+                            System.out.println("Request has been rejected");
+                        }
+                        else{
+                            System.out.println("Invalid input");
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a valid integer.");
+                        sc.nextLine(); // consume the invalid input
+                    }
+                    break;
+                case 8:
                     if(supervisor instanceof FYPCoordinator){
                         FYPCoordinatorModule fypCoordinatorModule = new FYPCoordinatorModule((FYPCoordinator) supervisor);
                         fypCoordinatorModule.run();
                     }
                     break;
-                case 7:
+                case 9:
                     System.out.println("Signing out of supervisor module...");
                     break;
                 default: 

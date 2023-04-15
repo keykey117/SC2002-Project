@@ -1,3 +1,5 @@
+import javax.print.attribute.SupportedValuesAttribute;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FYPDB {
@@ -15,6 +17,7 @@ public class FYPDB {
     }
 
     public static FYPDB getInstance() {
+
         if (instance == null) {
             instance = new FYPDB();
         }
@@ -42,4 +45,41 @@ public class FYPDB {
     }
 
     // Add other methods for modifying the lists as required
+
+    public Student getStudent(String studentID) {
+        for (Student student: this.students){
+            if (student.getID().equals(studentID)){
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public Supervisor getSupervisor(String supervisorID){
+        for (Supervisor supervisor: this.supervisors){
+            if(supervisor.getID().equals(supervisorID)){
+                return supervisor;
+            }
+        }
+        return null;
+    }
+
+    public Project getProjectByID(int projectID){
+        for (Project project: this.projects){
+            if(project.getProjectID() == projectID){
+                return project;
+            }
+        }
+        return null;
+    }
+
+    public List<Project> getProjectBySupID(String supervisorID){
+        List<Project> tempList = new ArrayList<>();
+        for (Project project: this.projects){
+            if(project.getSupervisor().getID().equals(supervisorID)){
+                tempList.add(project);
+            }
+        }
+        return tempList;
+    }
 }
