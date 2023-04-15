@@ -1,4 +1,9 @@
-public class Request_ChangeTitle extends Request{
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+public class Request_ChangeTitle extends Request {
     private String newTitle;
 
     public Request_ChangeTitle(String SenderID, String ReceiverID, RequestType reqType, int ProjectID, String newTitle) {
@@ -6,14 +11,10 @@ public class Request_ChangeTitle extends Request{
         this.newTitle = newTitle;
     }
 
-    //Only supervisor can approve or reject title change
-    @Override
     public void approve() {
         super.approve();
-        //change project title
     }
 
-    @Override
     public void reject() {
         super.reject();
     }

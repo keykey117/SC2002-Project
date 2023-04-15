@@ -1,13 +1,15 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 public class Request {
     public static int numRequest = 0;
     private int reqID;
     private String senderID;
     private String receiverID;
-
     private int projectID;
-
     private RequestStatus reqStatus;
-
     private RequestType reqType;
 
     public Request(String SenderID, String ReceiverID, RequestType reqType, int ProjectID) {
@@ -20,7 +22,7 @@ public class Request {
     }
 
     public int getReqID() {
-        return reqID;
+        return this.reqID;
     }
 
     public void setReqID(int reqID) {
@@ -28,7 +30,7 @@ public class Request {
     }
 
     public String getSenderID() {
-        return senderID;
+        return this.senderID;
     }
 
     public void setSenderID(String senderID) {
@@ -36,7 +38,7 @@ public class Request {
     }
 
     public String getReceiverID() {
-        return receiverID;
+        return this.receiverID;
     }
 
     public void setReceiverID(String receiverID) {
@@ -44,7 +46,7 @@ public class Request {
     }
 
     public int getProjectID() {
-        return projectID;
+        return this.projectID;
     }
 
     public void setProjectID(int projectID) {
@@ -52,7 +54,7 @@ public class Request {
     }
 
     public RequestStatus getReqStatus() {
-        return reqStatus;
+        return this.reqStatus;
     }
 
     public void setReqStatus(RequestStatus reqStatus) {
@@ -60,7 +62,7 @@ public class Request {
     }
 
     public RequestType getReqType() {
-        return reqType;
+        return this.reqType;
     }
 
     public void setReqType(RequestType reqType) {
@@ -69,33 +71,32 @@ public class Request {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Request ").append(reqID);
-        if (reqType == RequestType.CHANGE_TITLE) {
+        sb.append("Request ").append(this.reqID);
+        if (this.reqType == RequestType.CHANGE_TITLE) {
             sb.append(" to change title");
-        }
-        else if (reqType == RequestType.REGISTER_FYP) {
+        } else if (this.reqType == RequestType.REGISTER_FYP) {
             sb.append(" to register FYP");
-        }
-        else if (reqType == RequestType.DEREGISTER_FYP) {
+        } else if (this.reqType == RequestType.DEREGISTER_FYP) {
             sb.append(" to deregister FYP");
         }
-        if (reqStatus == RequestStatus.PENDING) {
+
+        if (this.reqStatus == RequestStatus.PENDING) {
             sb.append(" is pending");
-        }
-        else if (reqStatus == RequestStatus.APPROVED) {
+        } else if (this.reqStatus == RequestStatus.APPROVED) {
             sb.append(" is approved");
-        }
-        else if  (reqStatus == RequestStatus.REJECTED) {
+        } else if (this.reqStatus == RequestStatus.REJECTED) {
             sb.append(" is rejected");
         }
+
         sb.append("\n");
         return sb.toString();
     }
 
     public void approve() {
-        reqStatus = RequestStatus.APPROVED;
+        this.reqStatus = RequestStatus.APPROVED;
     }
+
     public void reject() {
-        reqStatus = RequestStatus.REJECTED;
+        this.reqStatus = RequestStatus.REJECTED;
     }
 }
