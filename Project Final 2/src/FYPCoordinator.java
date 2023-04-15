@@ -7,7 +7,6 @@ public class FYPCoordinator extends Supervisor {
     }
     public void changeProjectSupervisor(Project project, Supervisor newSupervisor) {
         // Implement logic to change the supervisor of a project upon request
-
     }
 
     public void allocateProjectToStudent(Project curProject, Student student) {
@@ -26,8 +25,13 @@ public class FYPCoordinator extends Supervisor {
         // Implement logic to deregister a student from a project upon request
     }
 
-    public List<Project> viewAllProjects() {
-        // Implement logic to return a list of all available, unavailable, reserved, and allocated projects
+
+    public void viewAllProjects() {
+        List<Project> projects = FYPDB.getInstance().getProjects();
+        for (Project project : projects){
+            System.out.println(project.toString());
+        }
+        return;
     }
 
     public List<Project> generateProjectDetailsReport(Map<String, String> filters) {
@@ -64,5 +68,7 @@ public class FYPCoordinator extends Supervisor {
             incomingRequests.get(i).toString();
         }
     }
+
+
 }
 

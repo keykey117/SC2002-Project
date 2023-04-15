@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class Supervisor extends User {
     private List<Project> projects;
     private int projCount;
@@ -19,16 +20,26 @@ public class Supervisor extends User {
         Supervisor supervisor = this;
         Project project = new Project(projectID, supervisor, title);
         projectList.add(project);
-        projCount++;
+
     }
 
-    public List<Project> viewProjects() {
+    public List<Project> getProjects() {
         return projects;
+    }
+
+    public void viewProjects(){
+        List<Project> projects = FYPDB.getInstance().getProjects();
+        for (Project project : projects){
+            if(project.getSupervisor().getID().equals(this.getID())){
+                System.out.println(project.toString());
+            }
+        }
     }
 
     public void modifyTitle(Project project, String newTitle) {
         project.setTitle(newTitle);
     }
+
 
     public void requestStudentTransfer(Project project, Supervisor newSupervisor, FYPCoordinator fypCoordinator) {
         // Implement the logic to send a request to the FYP coordinator to transfer a student to a replacement supervisor.
@@ -51,7 +62,6 @@ public class Supervisor extends User {
         // Implement the logic to approve the request made by a student.
         request.approve();
         //TODO find Project object and change its title.
-
     }
 
     public void rejectRequest(Request request) {
@@ -74,5 +84,10 @@ public class Supervisor extends User {
 
     }
 
+
     // Getter and setter methods for the attributes
+    public void addAllProjects(){
+
+    }
+
 }

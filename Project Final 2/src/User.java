@@ -1,14 +1,18 @@
+
 import java.util.ArrayList;
 import java.util.List;
+
 public class User {
     private String name;
     private String email;
     private String userID;
     private String password;
 
+
     private List<Request> incoming_requests;
 
     private List<Request> outgoing_requests;
+
 
 
 
@@ -17,6 +21,7 @@ public class User {
         this.email = email;
         this.userID = userID;
         this.password = "password";
+
         this.incoming_requests = new ArrayList<>();
         this.outgoing_requests = new ArrayList<>();
     }
@@ -66,4 +71,5 @@ public class User {
     public List<Request> GetOutgoingRequest() {
         return outgoing_requests;
     }
+
 }
