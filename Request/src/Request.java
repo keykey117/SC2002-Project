@@ -3,19 +3,28 @@ public class Request {
     private int reqID;
     private String senderID;
     private String receiverID;
+
+    private int projectID;
+
     private RequestStatus reqStatus;
 
     private RequestType reqType;
 
-    public Request(String SenderID, String ReceiverID, RequestType reqType) {
+    public Request(String SenderID, String ReceiverID, RequestType reqType, int ProjectID) {
         this.senderID = SenderID;
         this.receiverID = ReceiverID;
         this.reqType = reqType;
         this.reqStatus = RequestStatus.PENDING;
         this.reqID = ++numRequest;
+        this.projectID = ProjectID;
     }
+
     public int getReqID() {
         return reqID;
+    }
+
+    public void setReqID(int reqID) {
+        this.reqID = reqID;
     }
 
     public String getSenderID() {
@@ -34,7 +43,15 @@ public class Request {
         this.receiverID = receiverID;
     }
 
-    public RequestStatus isReqStatus() {
+    public int getProjectID() {
+        return projectID;
+    }
+
+    public void setProjectID(int projectID) {
+        this.projectID = projectID;
+    }
+
+    public RequestStatus getReqStatus() {
         return reqStatus;
     }
 
@@ -52,7 +69,7 @@ public class Request {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Request " + reqID);
+        sb.append("Request ").append(reqID);
         if (reqType == RequestType.CHANGE_TITLE) {
             sb.append(" to change title");
         }

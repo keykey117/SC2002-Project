@@ -1,9 +1,8 @@
 public class Request_ChangeSupervisor extends Request {
-    private int projectID;
+
     private String replacementSupervisor;
     public Request_ChangeSupervisor(String SenderID, String ReceiverID, RequestType reqType, int projectID, String replacementSupervisor) {
-        super(SenderID, ReceiverID, reqType);
-        this.projectID = projectID;
+        super(SenderID, ReceiverID, reqType, projectID);
         this.replacementSupervisor = replacementSupervisor;
     }
 
