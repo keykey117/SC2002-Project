@@ -59,6 +59,7 @@ public class LoginModule{
                 if(studentModule == null){
                     System.out.println("Wrong password entered.");
                 }
+                break;
             case 2:
                 List<Supervisor> supervisorList = FYPDB.getInstance().getSupervisors();
                 SupervisorModule supervisorModule = null;
@@ -70,16 +71,22 @@ public class LoginModule{
                         // studentInterface.run();
                     }
                 }
+                break;
             case 3:
                 List<FYPCoordinator> fypCoordinatorList = FYPDB.getInstance().getFypCoordinator();
                 for (FYPCoordinator fypCoordinator: fypCoordinatorList){
+//                    System.out.println(fypCoordinator.getID());
+//                    System.out.println(username);
+//                    System.out.println(fypCoordinator.getPassword());
+//                    System.out.println(password);
                     if(username.equals(fypCoordinator.getID()) && password.equals(fypCoordinator.getPassword())){
-                        System.out.println("Testing Works");
+//                        System.out.println("Testing Works");
+                        supervisorModule = new SupervisorModule(fypCoordinator);
+                        supervisorModule.run();
                         // studentInterface.run();
                     }
                 }
-            case 4:
-                System.out.println("Signing out of supervisor module...");
+                break;
             default:
                 System.out.println("Invalid choice!");
             }

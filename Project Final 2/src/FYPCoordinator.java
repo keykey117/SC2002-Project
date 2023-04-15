@@ -25,16 +25,22 @@ public class FYPCoordinator extends Supervisor {
         // Implement logic to deregister a student from a project upon request
     }
 
-    public List<Project> viewAllProjects() {
-        // Implement logic to return a list of all available, unavailable, reserved, and allocated projects
+    public void viewAllProjects() {
+        List<Project> projects = FYPDB.getInstance().getProjects();
+        for (Project project : projects){
+            System.out.println(project.toString());
+        }
+        return;
     }
 
     public List<Project> generateProjectDetailsReport(Map<String, String> filters) {
         // Implement logic to generate a project details report based on the provided filters
+        return null;
     }
 
     public List<Request> viewPendingRequests() {
         // Implement logic to return a list of pending requests sent by supervisors and students
+        return null;
     }
 
     public void approveRequest(Request request) {
@@ -47,6 +53,7 @@ public class FYPCoordinator extends Supervisor {
 
     public List<Request> viewRequestHistory() {
         // Implement logic to return a list of all requests handled by the FYP coordinator
+        return null;
     }
 }
 

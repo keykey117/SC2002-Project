@@ -14,13 +14,16 @@ public class SupervisorModule {
 
         // Choices supervisor can make
         int choice = -1;
-        while (choice != 4) {
+        while (choice != 7) {
             System.out.println("\n--------------Supervisor Panel--------------");
             System.out.println("Option Available: (1-6):");
             System.out.println("(1) Change Password");
-            System.out.println("(2) Projects");
-            System.out.println("(3) Request");
-            System.out.println("(4) Quit Supervisor Panel");
+            System.out.println("(2) View own Projects");
+            System.out.println("(3) Modify own Project Title");
+            System.out.println("(4) Add new Project");
+            System.out.println("(5) Request");
+            System.out.println("(6) Enter FYP Module");
+            System.out.println("(7) Quit Supervisor Panel");
             System.out.println("---------------------------------------");
             System.out.print("\nChoice: ");
 
@@ -33,7 +36,6 @@ public class SupervisorModule {
                 continue;
             }
             sc.nextLine();
-            List<Project> projects;
             switch(choice) {
                 case 1:
                     System.out.println("Enter old password: ");
@@ -47,14 +49,43 @@ public class SupervisorModule {
                     supervisor.changePassword(newPassword);
                     break;
                 case 2:
-                    projects = FYPDB.getInstance().getProjects();
-                    for (Project project : projects){
-                        if(project.getSupervisor().getID().equals(supervisor.getID())){
-                            System.out.println(project.toString());
+                    supervisor.viewProjects();
+                    break;
+                case 3:
+                    supervisor.viewProjects();
+                    System.out.println("Which project would you like to modify?");
+                    int projectID = sc.nextInt();
+                    String newTitle = "";
+
+                    // check for their own project
+                    List<Project> projects = FYPDB.getInstance().getProjects();
+                    for(Project project : projects){
+                        if(project.getProjectID() == projectID && project.getSupervisor().getID().equals(supervisor.getID())){
+                            System.out.println("This is the project");
+                            project.toString();
+                            sc.nextLine();
+                            System.out.println("Enter the new title:");
+                            newTitle = sc.nextLine();
+                            project.setTitle(newTitle);
+                            break;
                         }
                     }
+                    if (newTitle.isEmpty()) {
+                        System.out.println("You have entered an invalid projectID");
+                    }
                     break;
-                case 4: 
+                case 4:
+                    System.out.println("Enter the new project title:");
+                    String projTitle = sc.nextLine();
+                    supervisor.createProject(projTitle);
+                    break;
+                case 6:
+                    if(supervisor instanceof FYPCoordinator){
+                        FYPCoordinatorModule fypCoordinatorModule = new FYPCoordinatorModule((FYPCoordinator) supervisor);
+                        fypCoordinatorModule.run();
+                    }
+                    break;
+                case 7:
                     System.out.println("Signing out of supervisor module...");
                     break;
                 default: 

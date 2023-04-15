@@ -6,7 +6,7 @@ public class StudentModule {
     private Student student;
     public StudentModule(Student student){
         this.student = student;
-    };
+    }
     public void run(){
         Scanner sc = new Scanner(System.in);
 
@@ -33,13 +33,13 @@ public class StudentModule {
                 continue;
             }
             sc.nextLine();
-
+            List<Project> projects;
             switch(choice){
-                List<Project> projects;
-                case 1:
+
+                case 1: {
                     System.out.println("Enter old password: ");
                     String oldPassword = sc.nextLine();
-                    if(!oldPassword.equals(student.getPassword())){
+                    if (!oldPassword.equals(student.getPassword())) {
                         System.out.println("Password does not match");
                         break;
                     }
@@ -47,24 +47,36 @@ public class StudentModule {
                     String newPassword = sc.nextLine();
                     student.changePassword(newPassword);
                     break;
+                }
 
                 case 2:
-                    projects = FYPDB.getInstance().getProjects();
-                    for (Project project : projects){
-                        if(project.getStatus() == ProjectStatus.AVAILABLE){
-                            System.out.println(project.toString());
-                        }
-                    }
-
+                    student.viewAvailableProjects();
+//                {
+//                    projects = FYPDB.getInstance().getProjects();
+//                    for (Project project : projects) {
+//                        if (project.getStatus() == ProjectStatus.AVAILABLE) {
+//                            System.out.println(project.toString());
+//                        }
+//                    }
+//                }
+                    break;
                 case 4:
-                    projects = FYPDB.getInstance().getProjects();
-                    for (Project project : projects){
-                        if(project.getStudent().getID().equals(student.getID())){
-                            System.out.println(project.toString());
-                        }
+                    try {
+                        student.getProject().toString();
                     }
-                case 7 -> System.out.println("Signing out of student module...");
-                default -> System.out.println("Invalid choice!");
+                    catch(Exception e){
+                        System.out.println("Error occurred: " + e.getMessage());
+                    }
+                    break;
+//                    projects = FYPDB.getInstance().getProjects();
+//                    for (Project project : projects) {
+//                        if (project.getStudent().getID().equals(student.getID())) {
+//                            System.out.println(project.toString());
+//                        }
+//                    }
+
+                case 7: System.out.println("Signing out of student module...");
+                default: System.out.println("Invalid choice!");
             }
         }
         

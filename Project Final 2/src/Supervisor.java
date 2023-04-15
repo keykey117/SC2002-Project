@@ -10,6 +10,8 @@ public class Supervisor extends User {
     public Supervisor(String name, String email, String userID) {
         super(name, email, userID);
         this.projects = new ArrayList<>();
+
+        // Fix Request
         this.requests = new ArrayList<>();
         this.projCount = 0;
     }
@@ -20,11 +22,19 @@ public class Supervisor extends User {
         Supervisor supervisor = this;
         Project project = new Project(projectID, supervisor, title);
         projectList.add(project);
-        projCount++;
     }
 
-    public List<Project> viewProjects() {
+    public List<Project> getProjects() {
         return projects;
+    }
+
+    public void viewProjects(){
+        List<Project> projects = FYPDB.getInstance().getProjects();
+        for (Project project : projects){
+            if(project.getSupervisor().getID().equals(this.getID())){
+                System.out.println(project.toString());
+            }
+        }
     }
 
     public void modifyTitle(Project project, String newTitle) {
@@ -37,6 +47,7 @@ public class Supervisor extends User {
 
     public List<Request> viewPendingRequests() {
         // Implement the logic to return a list of pending requests from students.
+        return null;
     }
 
     public void approveRequest(Request request) {
@@ -49,7 +60,12 @@ public class Supervisor extends User {
 
     public List<Request> viewRequestHistory() {
         // Implement the logic to return a list of requests handled by the supervisor.
+        return null;
     }
 
+
     // Getter and setter methods for the attributes
+    public void addAllProjects(){
+
+    }
 }

@@ -9,9 +9,9 @@ public class FYPDB {
 
     private FYPDB() {
         students = SystemInitializer.initializeStudentList("students.txt");
-        supervisors = SystemInitializer.initializeFacultyList("supervisor.txt");
         projects = SystemInitializer.initializeProjectList("projects2.txt");
         fypCoordinator = SystemInitializer.initializeFYPCoordinatorList("FYPCoordinator.txt");
+        supervisors = SystemInitializer.initializeFacultyList("supervisor.txt");
     }
 
     public static FYPDB getInstance() {
