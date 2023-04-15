@@ -88,7 +88,13 @@ public class SupervisorModule {
                         sc.nextLine();
                         System.out.println("Enter the new supervisorID that you want to transfer");
                         String supervisorID = sc.nextLine();
-                        supervisor.requestStudentTransfer(transProjectID, supervisorID);
+                        List<Project> transProjects = FYPDB.getInstance().getProjects();
+                        for(Project project : transProjects){
+                            if(project.getProjectID() == transProjectID && project.getSupervisor().getID().equals(supervisor.getID())){
+                                supervisor.requestStudentTransfer(transProjectID, supervisorID);
+                                break;
+                            }
+                        }
                     } catch (InputMismatchException e) {
                         System.out.println("Invalid input. Please enter a valid number.");
                     }
@@ -123,6 +129,9 @@ public class SupervisorModule {
                         System.out.println("Invalid input. Please enter a valid integer.");
                         sc.nextLine(); // consume the invalid input
                     }
+                    break;
+                case 7:
+                    supervisor.PrintAllRequest();
                     break;
                 case 8:
                     if(supervisor instanceof FYPCoordinator){

@@ -44,19 +44,23 @@ public class Student extends User {
         this.addOutgoingRequest(requestRegisterFYP);
         fypCoordinator.addIncomingRequest(requestRegisterFYP);
         project.setStatus(ProjectStatus.RESERVED);
+
+        fypCoordinator.addRequest(requestRegisterFYP);
     }
 
     public void requestTitleChange(String newTitle) {
         // Implement logic to send request to the supervisor to change the project title
 //        System.out.println(this.getProject().getSupervisor().getID());
         Supervisor supervisor = FYPDB.getInstance().getSupervisor(this.getProject().getSupervisor().getID());
-        // FYPCoordinator fypCoordinator = FYPDB.getInstance().getFypCoordinator().get(0);
+        FYPCoordinator fypCoordinator = FYPDB.getInstance().getFypCoordinator().get(0);
         // Supervisor supervisor = this.getProject().getSupervisor();
 
         Request_ChangeTitle requestChangeTitle = new Request_ChangeTitle(this.getID(), supervisor.getID(), RequestType.CHANGE_TITLE,this.getProject().getProjectID(), newTitle);
         this.addOutgoingRequest(requestChangeTitle);
         supervisor.addIncomingRequest(requestChangeTitle);
 
+        // give FYPCoordinator this request to view
+        fypCoordinator.addRequest(requestChangeTitle);
     }
 
     public void requestDeregistration() {
@@ -65,6 +69,8 @@ public class Student extends User {
         Request_DeregisterFYP requestDeregisterFYP = new Request_DeregisterFYP(this.getID(), fypCoordinator.getID(), RequestType.DEREGISTER_FYP,project.getProjectID());
         this.addOutgoingRequest(requestDeregisterFYP);
         fypCoordinator.addIncomingRequest(requestDeregisterFYP);
+
+        fypCoordinator.addRequest(requestDeregisterFYP);
     }
 
     public List<Request> viewRequestHistory() {

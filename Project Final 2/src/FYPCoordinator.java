@@ -1,12 +1,11 @@
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.InputMismatchException;
+import java.util.*;
 
 public class FYPCoordinator extends Supervisor {
+    private List<Request> allRequest;
     Scanner sc = new Scanner(System.in);
     public FYPCoordinator(String name, String email, String userID) {
         super(name, email, userID);
+        this.allRequest = new ArrayList<>();
     }
     public void changeProjectSupervisor(Project project, Supervisor newSupervisor) {
         // Implement logic to change the supervisor of a project upon request
@@ -176,13 +175,14 @@ public class FYPCoordinator extends Supervisor {
 
     public void PrintAllRequest() {
         // Implement logic to return a list of all requests handled by the FYP coordinator
-        System.out.println("ALL INCOMING REQUESTS:\n");
-        List<Request> incomingRequests = this.GetIncomingRequest();
-        for (int i = 0; i < incomingRequests.size(); i++) {
-            incomingRequests.get(i).toString();
+        System.out.println("ALL REQUESTS:\n");
+        for (int i = 0; i < this.allRequest.size(); i++) {
+            System.out.println(this.allRequest.get(i).toString());
         }
     }
 
-
+    public void addRequest(Request req) {
+        this.allRequest.add(req);
+    }
 }
 

@@ -47,6 +47,8 @@ public class Supervisor extends User {
         Request request = new Request_ChangeSupervisor(this.getID(), fypCoordinator.getID(), RequestType.CHANGE_SUPERVISOR, projectID, supervisorID);
         fypCoordinator.addIncomingRequest(request);
         this.addOutgoingRequest(request);
+
+        fypCoordinator.addRequest(request);
     }
 
     public void PrintPendingRequestsFromStudents() {
@@ -75,12 +77,12 @@ public class Supervisor extends User {
         System.out.println("ALL INCOMING REQUESTS:\n");
         List<Request> incomingRequests = this.GetIncomingRequest();
         for (int i = 0; i < incomingRequests.size(); i++) {
-            incomingRequests.get(i).toString();
+            System.out.println(incomingRequests.get(i).toString());
         }
         System.out.println("ALL OUTGOING REQUESTS:\n");
         List<Request> outgoingRequests = this.GetOutgoingRequest();
         for (int i =0; i < outgoingRequests.size(); i++) {
-            outgoingRequests.get(i).toString();
+            System.out.println(outgoingRequests.get(i).toString());
         }
 
     }

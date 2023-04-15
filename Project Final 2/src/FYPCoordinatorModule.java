@@ -74,6 +74,7 @@ public class FYPCoordinatorModule{
 
                     break;
                 case 4:
+                    fypCoordinator.PrintAllRequest();
                     break;
                 case 5:
                     fypCoordinator.generateProjectDetailsReport();
