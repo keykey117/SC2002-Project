@@ -1,0 +1,11 @@
+CHERN|YCHERN@e.ntu.edu.sg|student
+KOH|KOH1@e.ntu.edu.sg|student
+BRANDON|BR015@e.ntu.edu.sg|student
+CALVIN|CT113@e.ntu.edu.sg|student
+CHAN|YCN019@e.ntu.edu.sg|student
+DENISE|DL007@e.ntu.edu.sg|student
+DONG|DON84@e.ntu.edu.sg|student
+ERNEST|ELI34@e.ntu.edu.sg|student
+LEE|LE51@e.ntu.edu.sg|student
+LIU|SL22@e.ntu.edu.sg|student
+RAWAL|AKY013@e.ntu.edu.sg|student
