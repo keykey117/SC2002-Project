@@ -180,7 +180,7 @@ public class SupervisorModule {
                     }
                     break;
                 case 7:
-                    supervisor.PrintAllRequest();
+                    supervisor.printAllRequest();
                     break;
                 case 8:
                     if(supervisor instanceof FYPCoordinator){

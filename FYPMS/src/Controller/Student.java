@@ -134,7 +134,7 @@ public class Student extends User {
      * Overrides the method from the parent class User to print all outgoing requests made by the student.
      */
     @Override
-    public void PrintAllRequest() {
+    public void printAllRequest() {
         // Implement logic to return a list of all requests outgoing by Student
         System.out.println("ALL REQUESTS\n");
         List<Request> outgoingRequest = this.getOutgoingRequest();

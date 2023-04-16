@@ -7,14 +7,32 @@ import java.util.List;
 import Controller.FYPCoordinator;
 import Entity.*;
 import Enum.*;
+/**
+ * The FYPCoordinatorModule class is a User Interface class that provides a command-line interface
+ * for FYP Coordinator's functionalities.
+ * It allows FYP Coordinator to view all projects, pending requests, approve or reject requests,
+ * and generate a project details report.
+ *
+ * @author Tan Ding Jiang
+ * @version 1.0.0 Apr 16, 2023
+ */
 
 public class FYPCoordinatorModule{
     private FYPCoordinator fypCoordinator;
 
+    /**
+     * Constructs a FYPCoordinatorModule with the specified FYPCoordinator.
+     *
+     * @param fypCoordinator the FYPCoordinator to associate with the FYPCoordinatorModule.
+     */
     public FYPCoordinatorModule(FYPCoordinator fypCoordinator){
         this.fypCoordinator = fypCoordinator;
     }
 
+    /**
+     * Runs the FYPCoordinatorModule's command-line interface, allowing FYP Coordinator to view all projects,
+     * pending requests, approve or reject requests, and generate a project details report.
+     */
     public void run(){
         Scanner sc = new Scanner(System.in);
 

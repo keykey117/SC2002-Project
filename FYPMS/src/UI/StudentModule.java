@@ -1,12 +1,5 @@
 package UI;
-/**
- * This represents the Student Module which will be accessed when the user logs in using a Student Account
- *
- * Upon succesful login as Student, the user will be presented with options available to a Student
- *
- * @author Ian Sim, Tan Ding Jiang
- * @version 1.0.0 Apr 15, 2023
- */
+
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -17,6 +10,14 @@ import Entity.Project;
 import Database.*;
 import Enum.ProjectStatus;
 
+/**
+ * This represents the Student Module which will be accessed when the user logs in using a Student Account
+ *
+ * Upon succesful login as Student, the user will be presented with options available to a Student
+ *
+ * @author Ian Sim, Tan Ding Jiang
+ * @version 1.0.0 Apr 15, 2023
+ */
 public class StudentModule {
     /**
      * Valid Student account needed
@@ -130,7 +131,7 @@ public class StudentModule {
                     System.out.println("Your request have been successfully submitted!");
                     break;
                 case 6:
-                    student.PrintAllRequest();
+                    student.printAllRequest();
                     break;
                 case 7:
                     student.requestDeregistration();

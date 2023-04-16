@@ -121,7 +121,7 @@ public class Supervisor extends User {
     /**
      * Prints a list of requests handled by the supervisor, excluding requests for capacity changes by the FYPCoordinator.
      */
-    public void PrintAllRequest() {
+    public void printAllRequest() {
         // Implement the logic to return a list of requests handled by the supervisor. (Excluding that of capacity of FYPCoordinator)
         System.out.println("ALL INCOMING REQUESTS:\n");
         List<Request> incomingRequests = this.getIncomingRequest();
