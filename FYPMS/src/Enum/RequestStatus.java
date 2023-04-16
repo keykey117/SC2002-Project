@@ -6,10 +6,21 @@ package Enum;//
  */
 
 public enum RequestStatus {
+    /**
+     * Indicates that the request is pending and has not been approved or rejected.
+     * */
     PENDING,
+    /**
+     * Indicates that the request has been approved.
+     * */
     APPROVED,
+    /**
+     * Private constructor to restrict instantiation of RequestStatus objects.
+     * */
     REJECTED;
-
+    /**
+     * Private constructor to restrict instantiation of RequestStatus objects.
+     * */
     private RequestStatus() {
     }
 }
