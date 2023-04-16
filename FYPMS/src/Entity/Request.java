@@ -128,6 +128,15 @@ public class Request {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("REQUEST ID: ").append(this.reqID).append('\n');
+        sb.append("REQUEST STATUS: ");
+        if (this.reqStatus == RequestStatus.PENDING) {
+            sb.append("PENDING");
+        } else if (this.reqStatus == RequestStatus.APPROVED) {
+            sb.append("APPROVED");
+        } else if (this.reqStatus == RequestStatus.REJECTED) {
+            sb.append("REJECTED");
+        }
+        sb.append("\n");
         sb.append("REQUEST TYPE: ");
         if (this.reqType == RequestType.CHANGE_TITLE) {
             sb.append("Change FYP title");
@@ -141,16 +150,8 @@ public class Request {
         sb.append('\n');
         sb.append("FROM: ").append(this.senderID).append('\n');
         sb.append("TO: ").append(this.receiverID).append('\n');
-        sb.append("Project ID:" + this.projectID + '\n');
-        sb.append("REQUEST STATUS: ");
-        if (this.reqStatus == RequestStatus.PENDING) {
-            sb.append("PENDING");
-        } else if (this.reqStatus == RequestStatus.APPROVED) {
-            sb.append("APPROVED");
-        } else if (this.reqStatus == RequestStatus.REJECTED) {
-            sb.append("REJECTED");
-        }
-        sb.append("\n");
+        ProjectController projectController = new ProjectController();
+        sb.append(projectController.getProjectByID(this.projectID).toString());
         sb.append('\n');
         return sb.toString();
     }

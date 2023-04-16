@@ -2,6 +2,7 @@ package Entity;//
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //
+import Controller.ProjectController;
 import Controller.Student;
 import Controller.Supervisor;
 import Enum.*;
@@ -25,6 +26,10 @@ public class Request_RegisterFYP extends Request {
      */
     public Request_RegisterFYP(String SenderID, String ReceiverID, RequestType reqType, int projectID) {
         super(SenderID, ReceiverID, reqType, projectID);
+        FYPDB fypdb = FYPDB.getInstance();
+        Project project = fypdb.getProjectByID(this.getProjectID());
+        Student student = fypdb.getStudent(SenderID);
+        project.setStudent(student);
     }
 
     /**
@@ -33,7 +38,6 @@ public class Request_RegisterFYP extends Request {
     public void approve() {
         super.approve();
         FYPDB fypdb = FYPDB.getInstance();
-
         Student student = fypdb.getStudent(this.getSenderID());
 
         //mark project as allocated
