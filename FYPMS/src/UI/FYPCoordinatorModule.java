@@ -60,10 +60,21 @@ public class FYPCoordinatorModule{
 
                     int inputRequestType = 0;
 
-                    while (inputRequestType < 1 || inputRequestType > 4) {
-                        System.out.println("Please enter a number between 1 and 4: ");
-                        inputRequestType = sc.nextInt();
-                        sc.nextLine();
+                    while (true) {
+                        try {
+                            System.out.println("Please enter a number between 1 and 4: ");
+                            inputRequestType = sc.nextInt();
+                            sc.nextLine();
+
+                            if (inputRequestType >= 1 && inputRequestType <= 4) {
+                                break;
+                            } else {
+                                System.out.println("Invalid input. Please enter a number between 1 and 4.");
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Invalid input. Please enter a number between 1 and 4.");
+                            sc.nextLine();
+                        }
                     }
 
                     RequestType requestType;
@@ -154,8 +165,12 @@ public class FYPCoordinatorModule{
                 case 4:
                     fypCoordinator.generateProjectDetailsReport();
                     break;
-                case 5: System.out.println("Signing out of student module...");
-                default: System.out.println("Invalid choice!");
+                case 5:
+                    System.out.println("Signing out of student module...");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
             }
 
         }
