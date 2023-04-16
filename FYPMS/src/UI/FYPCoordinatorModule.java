@@ -36,9 +36,6 @@ public class FYPCoordinatorModule{
             else {
                 System.out.println("(3) Approve/Reject Requests");
             }
-//            System.out.println("(2) Change supervisor");
-//            System.out.println("(3) Allocate Project to Student");
-//            System.out.println("(4) Deregister project");
             System.out.println("(4) Filter and Generate Project Details Report");
             System.out.println("(5) Quit FYP Panel");
             System.out.println("---------------------------------------");
@@ -135,43 +132,6 @@ public class FYPCoordinatorModule{
                         }
 
                     break;
-//                case 3:
-//
-//
-//                    // fix later: specfiic req type only!!!
-//                    fypCoordinator.printPendingRequests();
-//                    System.out.println("Enter reqID for approval:");
-//                    try {
-//                        int reqID = sc.nextInt();
-//                        sc.nextLine();
-//                        Request request = fypCoordinator.getSpecificIncomingRequest(reqID);
-//                        if (request == null){
-//                            System.out.println("Request not found");
-//                            break;
-//                        }
-//
-//                        System.out.println("Do you want to approve (Y/N)");
-//                        String approve = sc.nextLine();
-//                        if(approve.equals("Y")){
-//                            request.approve();
-//                            System.out.println("Request has been approved");
-//                        }
-//                        else if (approve.equals("N")){
-//                            request.reject();
-//                            System.out.println("Request has been rejected");
-//                        }
-//                        else{
-//                            System.out.println("Invalid input");
-//                        }
-//                    } catch (InputMismatchException e) {
-//                        System.out.println("Invalid input. Please enter a valid integer.");
-//                        sc.nextLine(); // consume the invalid input
-//                    }
-//
-//                    break;
-//                case 4:
-//                    fypCoordinator.PrintAllRequest();
-//                    break;
                 case 4:
                     fypCoordinator.generateProjectDetailsReport();
                     break;
