@@ -41,7 +41,7 @@ public class SupervisorModule {
         int choice = -1;
         while (choice != 9) {
             System.out.println("\n--------------Supervisor Panel--------------");
-            System.out.println("Option Available: (1-6):");
+            System.out.println("Option Available: (1-9):");
             System.out.println("(1) Change Password");
             System.out.println("(2) View own Projects");
             System.out.println("(3) Modify own Project Title");

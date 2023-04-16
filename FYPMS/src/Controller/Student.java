@@ -5,9 +5,24 @@ import java.util.List;
 import Entity.*;
 import Enum.*;
 import Database.*;
+
+/**
+ * The Student class represents a student user of the FYP system.
+ * It extends the User class and adds additional functionality for registering and managing FYP projects.
+ * @author Ian Sim, Ding Jiang
+ * @version 1.0.0 Apr 16, 2023
+ */
 public class Student extends User {
     private Project project;
     private boolean deregistered;
+
+    /**
+     * Creates a new Student object with the given name, email, and user ID.
+     * The student's project is initially set to null, and their deregistered status is set to false.
+     * @param name The name of the student.
+     * @param email The email address of the student.
+     * @param userID The unique user ID of the student.
+     */
     public Student(String name, String email, String userID) {
         super(name, email, userID);
 
@@ -15,14 +30,38 @@ public class Student extends User {
         this.deregistered = false;
     }
 
+    /**
+     * Returns the project that this student is registered for, or null if they have not yet registered for a project.
+     * @return The student's current project.
+     */
     public Project getProject(){
         return this.project;
     }
+
+    /**
+     * Sets the project that this student is registered for.
+     * @param project The project to register for.
+     */
+
     public void setProject(Project project){
         this.project = project;
     }
+
+    /**
+     * Sets this student's deregistered status to true.
+     */
     public void setDeregistered(){this.deregistered = true;}
+
+    /**
+     * Returns whether this student has been deregistered from the FYP system.
+     * @return Whether the student has been deregistered.
+     */
     public boolean getDeregistered(){return this.deregistered;}
+
+    /**
+     * Displays a list of available FYP projects that the student can register for.
+     * If the student is already registered for a project or has deregistered, appropriate messages are displayed instead.
+     */
     public void viewAvailableProjects() {
         // Implement logic to return a list of available projects
         List<Project> projects = FYPDB.getInstance().getProjects();
@@ -42,6 +81,11 @@ public class Student extends User {
         }
     }
 
+    /**
+     * Sends a request to the FYP coordinator to allocate the given project to the student.
+     * The project's status is also set to RESERVED.
+     * @param project The project to allocate to the student.
+     */
     public void requestProjectAllocation(Project project) {
         // Implement logic to send request to the FYP coordinator to allocate the project
         FYPCoordinator fypCoordinator = FYPDB.getInstance().getFypCoordinator().get(0);
@@ -53,21 +97,26 @@ public class Student extends User {
         fypCoordinator.addRequest(requestRegisterFYP);
     }
 
+    /**
+     * Sends a request to the student's project supervisor to change the project's title to the given value.
+     * @param newTitle The new title to set for the project.
+     */
     public void requestTitleChange(String newTitle) {
-        // Implement logic to send request to the supervisor to change the project title
-//        System.out.println(this.getProject().getSupervisor().getID());
         Supervisor supervisor = FYPDB.getInstance().getSupervisor(this.getProject().getSupervisor().getID());
         FYPCoordinator fypCoordinator = FYPDB.getInstance().getFypCoordinator().get(0);
-        // Supervisor supervisor = this.getProject().getSupervisor();
 
         Request_ChangeTitle requestChangeTitle = new Request_ChangeTitle(this.getID(), supervisor.getID(), RequestType.CHANGE_TITLE,this.getProject().getProjectID(), newTitle);
         this.addOutgoingRequest(requestChangeTitle);
         supervisor.addIncomingRequest(requestChangeTitle);
 
-        // give FYPCoordinator this request to view
         fypCoordinator.addRequest(requestChangeTitle);
     }
 
+    /**
+     * Sends a request to the FYP coordinator to deregister the student from the allocated project.
+     * Adds the request to the student's outgoing requests and to the FYP coordinator's incoming requests.
+     * Adds the request to the FYP coordinator's list of requests.
+     */
     public void requestDeregistration() {
         // Implement logic to send request to the FYP coordinator to deregister from the allocated project
         FYPCoordinator fypCoordinator = FYPDB.getInstance().getFypCoordinator().get(0);
@@ -78,6 +127,9 @@ public class Student extends User {
         fypCoordinator.addRequest(requestDeregisterFYP);
     }
 
+    /**
+     * Overrides the method from the parent class User to print all outgoing requests made by the student.
+     */
     @Override
     public void PrintAllRequest() {
         // Implement logic to return a list of all requests outgoing by Student
@@ -88,11 +140,16 @@ public class Student extends User {
         }
     }
 
+    /**
+     * Returns a boolean indicating if the student has any outgoing requests for a reserved project.
+     *
+     * @return true if the student has an outgoing request for a reserved project, false otherwise.
+     */
     public boolean checkReserved(){
         List<Request> requests = this.getOutgoingRequest();
         for(Request request : requests){
             FYPDB fypdb = FYPDB.getInstance();
-            if(fypdb.getProjectByID(request.getProjectID()).getStatus() == ProjectStatus.RESERVED){
+            if(fypdb.getProjectByID(request.getProjectID()).getStatus() == ProjectStatus.RESERVED || fypdb.getProjectByID(request.getProjectID()).getStatus() == ProjectStatus.ALLOCATED){
                 return true;
             }
         }

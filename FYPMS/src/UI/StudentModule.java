@@ -90,7 +90,7 @@ public class StudentModule {
 
                     // Check outgoing request of student, if he has outgoing request that is reserved, stop him from registering
                     if(student.checkReserved()){
-                        System.out.println("You are have already reserved one project.");
+                        System.out.println("You have already reserved one project.");
                         break;
                     }
 

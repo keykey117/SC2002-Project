@@ -6,14 +6,33 @@ import Entity.Project;
 import Entity.Request;
 import Enum.*;
 import Database.*;
+/**
+ * This class represents a FYP Coordinator who is responsible for handling various tasks related to FYP project management
+ * such as changing project supervisor, allocating project to student, deregistering student from project,
+ * generating project details report, and viewing all projects.
+ * @author Ian Sim, Key Yew, Ding Jiang
+ * @version 1.0.0 Apr 16, 2023
+ */
 public class FYPCoordinator extends Supervisor {
     private List<Request> allRequest;
     Scanner sc = new Scanner(System.in);
+
+    /**
+     * Constructor to create a new FYPCoordinator object.
+     *
+     * @param name The name of the FYP Coordinator
+     * @param email The email of the FYP Coordinator
+     * @param userID The user ID of the FYP Coordinator
+     */
     public FYPCoordinator(String name, String email, String userID) {
         super(name, email, userID);
         this.allRequest = new ArrayList<>();
     }
 
+
+    /**
+     * Displays all the available FYP projects.
+     */
     public void viewAllProjects() {
         List<Project> projects = FYPDB.getInstance().getProjects();
         for (Project project : projects){
@@ -22,6 +41,9 @@ public class FYPCoordinator extends Supervisor {
         return;
     }
 
+    /**
+     * Generates a project details report based on the user input for filters.
+     */
     public void generateProjectDetailsReport(){
 
         System.out.println("\n--------------Filters Panel--------------");
@@ -132,6 +154,9 @@ public class FYPCoordinator extends Supervisor {
         }
     }
 
+    /**
+     * Prints pending requests for supervisor role where request type is 'CHANGE_TITLE'
+     */
     public void printSupRolePendingRequests(){
         List<Request> requests = this.getIncomingRequest();
         List<Request> filteredRequests = new ArrayList<>();
@@ -151,6 +176,10 @@ public class FYPCoordinator extends Supervisor {
         }
     }
 
+    /**
+     * Checks if supervisor role has any pending requests where request type is 'CHANGE_TITLE'
+     * @return true if there are any pending requests, false otherwise
+     */
     public boolean hasSupRolePendingRequests() {
         List<Request> requests = this.getIncomingRequest();
         for (int i = 0; i < requests.size(); i++) {
@@ -161,6 +190,9 @@ public class FYPCoordinator extends Supervisor {
         return false;
     }
 
+    /**
+     * Prints pending requests where request type is not 'CHANGE_TITLE'
+     */
     public void printPendingRequests() {
         // Implement logic to return a list of pending requests sent by supervisors and students
         List<Request> requests = this.getIncomingRequest();
@@ -181,6 +213,10 @@ public class FYPCoordinator extends Supervisor {
         }
     }
 
+    /**
+     * Checks if there are any pending requests where request type is not 'CHANGE_TITLE'
+     * @return true if there are any pending requests, false otherwise
+     */
     public boolean hasPendingRequests() {
         List<Request> requests = this.getIncomingRequest();
         for (int i = 0; i < requests.size(); i++) {
@@ -191,6 +227,9 @@ public class FYPCoordinator extends Supervisor {
         return false;
     }
 
+    /**
+     * Prints all requests handled by FYP coordinator, excluding capacity of supervisor
+     */
     public void PrintAllRequest() {
         // Implement logic to return a list of all requests handled by the FYP coordinator (Excluding that of capacity of supervisor)
         System.out.println("ALL REQUESTS:\n");
@@ -206,10 +245,19 @@ public class FYPCoordinator extends Supervisor {
         }
     }
 
+    /**
+     * Adds a new request to the list of all requests
+     * @param req the request to add
+     */
     public void addRequest(Request req) {
         this.allRequest.add(req);
     }
 
+    /**
+     * Prints the details of all requests of a specified type.
+     *
+     * @param requestType the type of request to be displayed.
+     */
     public void viewRequestOfType(RequestType requestType){
         List<Request> requests = this.getIncomingRequest();
         for(Request request : requests){
@@ -219,6 +267,12 @@ public class FYPCoordinator extends Supervisor {
         }
     }
 
+    /**
+     * Returns a list of pending requests of a specified type.
+     *
+     * @param requestType the type of request to be returned.
+     * @return a list of pending requests of the specified type.
+     */
     public List<Request> getPendingRequestOfType(RequestType requestType){
         List<Request> requestList = new ArrayList<>();
         List<Request> requests = this.getIncomingRequest();

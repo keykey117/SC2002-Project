@@ -22,7 +22,7 @@ public class FYPCoordinatorModule{
         int choice = -1;
         while (choice != 5) {
             System.out.println("\n--------------FYP Coordinator Panel--------------");
-            System.out.println("Option Available: (1-6):");
+            System.out.println("Option Available: (1-5):");
             System.out.println("(1) View all projects");
             if(this.fypCoordinator.hasPendingRequests()){
                 System.out.println("(2) View all pending request (NEW)");
