@@ -64,17 +64,6 @@ public class Supervisor extends User {
     }
 
     public void printPendingRequests() {
-//        List<Request> requests = this.getIncomingRequest();
-//        List<Request> filteredRequests = new ArrayList<>();
-//        // Check request type, keeping only those of type change title
-//        for(Request request : requests){
-//            if(request.getReqStatus() == RequestStatus.PENDING && request.getReqType() == RequestType.CHANGE_TITLE){
-//                filteredRequests.add(request);
-//            }
-//        }
-//        for (int i = 0; i < filteredRequests.size(); i++) {
-//            System.out.println(filteredRequests.get(i).toString());
-//        }
         List<Request> requests = this.getIncomingRequest();
         for (int i = 0; i < requests.size(); i++) {
             if (requests.get(i).getReqStatus() == RequestStatus.PENDING && requests.get(i).getReqType() == RequestType.CHANGE_TITLE) {

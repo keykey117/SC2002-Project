@@ -204,19 +204,6 @@ public class FYPCoordinator extends Supervisor {
         if(flag == 0){
             System.out.println("No pending requests");
         }
-
-//        int flag = 0;
-//        List<Request> requests = this.getIncomingRequest();
-//        for (int i = 0; i < requests.size(); i++) {
-//            if (requests.get(i).getReqStatus() == RequestStatus.PENDING && requests.get(i).getReqType() != RequestType.CHANGE_TITLE) {
-//                System.out.println(requests.get(i).toString());
-//                flag = 1;
-//            }
-//        }
-//        if(flag == 0){
-//            System.out.println("No pending requests");
-//        }
-
     }
 
     public boolean hasPendingRequests() {
