@@ -169,6 +169,7 @@ public class User {
         List<Request> requests = this.getIncomingRequest();
         for (int i = 0; i < requests.size(); i++) {
             if (requests.get(i).getReqStatus() == RequestStatus.PENDING) {
+                System.out.println("NEW");
                 System.out.println(requests.get(i).toString());
             }
         }

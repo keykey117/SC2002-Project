@@ -127,7 +127,18 @@ public class SupervisorModule {
 
                     break;
                 case 6:
-                    supervisor.printPendingRequests();
+                    if(supervisor instanceof FYPCoordinator){
+                        ((FYPCoordinator) supervisor).printSupRolePendingRequests();
+                        if(!((FYPCoordinator) supervisor).hasSupRolePendingRequests()){
+                            break;
+                        }
+                    }
+                    else{
+                        supervisor.printPendingRequests();
+                        if(supervisor.hasPendingRequests()){
+                            break;
+                        }
+                    }
                     System.out.println("Enter reqID for approval:");
                     try {
                         int reqID = sc.nextInt();

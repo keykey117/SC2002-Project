@@ -63,6 +63,38 @@ public class Supervisor extends User {
         fypCoordinator.addRequest(request);
     }
 
+    public void printPendingRequests() {
+//        List<Request> requests = this.getIncomingRequest();
+//        List<Request> filteredRequests = new ArrayList<>();
+//        // Check request type, keeping only those of type change title
+//        for(Request request : requests){
+//            if(request.getReqStatus() == RequestStatus.PENDING && request.getReqType() == RequestType.CHANGE_TITLE){
+//                filteredRequests.add(request);
+//            }
+//        }
+//        for (int i = 0; i < filteredRequests.size(); i++) {
+//            System.out.println(filteredRequests.get(i).toString());
+//        }
+        List<Request> requests = this.getIncomingRequest();
+        for (int i = 0; i < requests.size(); i++) {
+            if (requests.get(i).getReqStatus() == RequestStatus.PENDING && requests.get(i).getReqType() == RequestType.CHANGE_TITLE) {
+                System.out.println("NEW");
+                System.out.println(requests.get(i).toString());
+            }
+        }
+
+    }
+
+    public boolean hasPendingRequests() {
+        List<Request> requests = this.getIncomingRequest();
+        for (int i = 0; i < requests.size(); i++) {
+            if (requests.get(i).getReqStatus() == RequestStatus.PENDING && requests.get(i).getReqType() == RequestType.CHANGE_TITLE) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void PrintPendingRequestsFromStudents() {
         // Implement the logic to return a list of pending requests from students.
         List<Request> requests = this.getIncomingRequest();
@@ -72,6 +104,7 @@ public class Supervisor extends User {
             }
         }
     }
+
 
     public void approveRequest_TitleChange(Request request) {
         // Implement the logic to approve the request made by a student.

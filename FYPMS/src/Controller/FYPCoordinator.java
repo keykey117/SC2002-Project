@@ -157,21 +157,71 @@ public class FYPCoordinator extends Supervisor {
         }
     }
 
-    public void printPendingRequests() {
-        // Implement logic to return a list of pending requests sent by supervisors and students
-        int flag = 0;
+    public void printSupRolePendingRequests(){
         List<Request> requests = this.getIncomingRequest();
-        for (int i = 0; i < requests.size(); i++) {
-            if (requests.get(i).getReqStatus() == RequestStatus.PENDING) {
-                System.out.println(requests.get(i).toString());
+        List<Request> filteredRequests = new ArrayList<>();
+        int flag = 0;
+        // Check request type, keeping only those of type change title
+        for(Request request : requests){
+            if(request.getReqStatus() == RequestStatus.PENDING && request.getReqType() == RequestType.CHANGE_TITLE){
+                filteredRequests.add(request);
                 flag = 1;
             }
+        }
+        for (int i = 0; i < filteredRequests.size(); i++) {
+            System.out.println("NEW: ");
+            System.out.println(filteredRequests.get(i).toString());
+        }
+        if(flag == 0){
+            System.out.println("No pending requests");
+        }
+    }
+
+    public boolean hasSupRolePendingRequests() {
+        List<Request> requests = this.getIncomingRequest();
+        for (int i = 0; i < requests.size(); i++) {
+            if (requests.get(i).getReqStatus() == RequestStatus.PENDING && requests.get(i).getReqType() == RequestType.CHANGE_TITLE) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void printPendingRequests() {
+        // Implement logic to return a list of pending requests sent by supervisors and students
+        List<Request> requests = this.getIncomingRequest();
+        List<Request> filteredRequests = new ArrayList<>();
+        int flag = 0;
+        // Check request type, keeping only those of type change title
+        for(Request request : requests){
+            if(request.getReqStatus() == RequestStatus.PENDING && request.getReqType() != RequestType.CHANGE_TITLE){
+                filteredRequests.add(request);
+                flag = 1;
+            }
+        }
+        for (int i = 0; i < filteredRequests.size(); i++) {
+            System.out.println("NEW: ");
+            System.out.println(filteredRequests.get(i).toString());
         }
         if(flag == 0){
             System.out.println("No pending requests");
         }
 
+//        int flag = 0;
+//        List<Request> requests = this.getIncomingRequest();
+//        for (int i = 0; i < requests.size(); i++) {
+//            if (requests.get(i).getReqStatus() == RequestStatus.PENDING && requests.get(i).getReqType() != RequestType.CHANGE_TITLE) {
+//                System.out.println(requests.get(i).toString());
+//                flag = 1;
+//            }
+//        }
+//        if(flag == 0){
+//            System.out.println("No pending requests");
+//        }
+
     }
+
+
 
     public void approve(Request request) {
         // Implement logic to approve the request sent by a supervisor or a student
@@ -190,7 +240,7 @@ public class FYPCoordinator extends Supervisor {
         List<Request> requests = this.allRequest;
         List<Request> filteredRequests = new ArrayList<>();
         for(Request request : filteredRequests){
-            if(request.getReqType() == RequestType.CHANGE_TITLE && request.getReqType() == RequestType.CHANGE_SUPERVISOR){
+            if(request.getReqType() != RequestType.CHANGE_TITLE){
                 filteredRequests.add(request);
             }
         }
