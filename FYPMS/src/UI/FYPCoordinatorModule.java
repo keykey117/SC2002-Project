@@ -3,6 +3,7 @@ package UI;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import Entity.*;
+import Enum.*;
 
 public class FYPCoordinatorModule{
     private FYPCoordinator fypCoordinator;
@@ -37,11 +38,29 @@ public class FYPCoordinatorModule{
             }
             sc.nextLine();
 
+            RequestType requestType;
             switch(choice){
                 case 1:
                     fypCoordinator.viewAllProjects();
                     break;
                 case 2:
+                    requestType = RequestType.CHANGE_SUPERVISOR;
+
+                    if(!fypCoordinator.getRequestOfType(requestType).isEmpty()){
+                        //View Change Supervisor Requests
+                        fypCoordinator.viewRequestOfType(requestType);
+
+                        // Prompt for which request to approve/reject
+                        System.out.println("Which request to approve/reject");
+                    }
+                    else{
+
+                    }
+
+                    //View Change Supervisor Requests
+                    fypCoordinator.viewRequestOfType(requestType);
+                    // Get all request for fypCoordinator
+                    // Filter out
 
                     break;
                 case 3:

@@ -187,5 +187,25 @@ public class FYPCoordinator extends Supervisor {
     public void addRequest(Request req) {
         this.allRequest.add(req);
     }
+
+    public void viewRequestOfType(RequestType requestType){
+        List<Request> requests = this.GetIncomingRequest();
+        for(Request request : requests){
+            if(request.getReqType() == requestType){
+                System.out.println(request.toString());
+            }
+        }
+    }
+
+    public List<Request> getRequestOfType(RequestType requestType){
+        List<Request> requestList = new ArrayList<>();
+        List<Request> requests = this.GetIncomingRequest();
+        for(Request request : requests){
+            if(request.getReqType() == requestType){
+                requestList.add(request);
+            }
+        }
+        return requestList;
+    }
 }
 
