@@ -93,4 +93,15 @@ public class Student extends User {
             System.out.println(outgoingRequest.get(i).toString());
         }
     }
+
+    public boolean checkReserved(){
+        List<Request> requests = this.getOutgoingRequest();
+        for(Request request : requests){
+            FYPDB fypdb = FYPDB.getInstance();
+            if(fypdb.getProjectByID(request.getProjectID()).getStatus() == ProjectStatus.RESERVED){
+                return true;
+            }
+        }
+        return false;
+    }
 }

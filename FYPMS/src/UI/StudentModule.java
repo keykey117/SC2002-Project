@@ -87,6 +87,13 @@ public class StudentModule {
                         System.out.println("You are not allowed to make selection again as you deregistered your FYP.");
                         break;
                     }
+
+                    // Check outgoing request of student, if he has outgoing request that is reserved, stop him from registering
+                    if(student.checkReserved()){
+                        System.out.println("You are have already reserved one project.");
+                        break;
+                    }
+
                     System.out.println("Enter AVAILABLE projectID that you wish to register:");
                     try {
                         int projectID = sc.nextInt();
