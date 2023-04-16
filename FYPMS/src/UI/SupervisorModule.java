@@ -164,7 +164,7 @@ public class SupervisorModule {
                         fypCoordinatorModule.run();
                     }
                     else {
-                        System.out.println("You are not authorized to access this");
+                        System.out.println("You are not a FYP coordinator");
                     }
                     break;
                 case 9:
