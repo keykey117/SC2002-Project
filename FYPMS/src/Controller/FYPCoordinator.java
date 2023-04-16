@@ -160,7 +160,7 @@ public class FYPCoordinator extends Supervisor {
     public void printPendingRequests() {
         // Implement logic to return a list of pending requests sent by supervisors and students
         int flag = 0;
-        List<Request> requests = this.GetIncomingRequest();
+        List<Request> requests = this.getIncomingRequest();
         for (int i = 0; i < requests.size(); i++) {
             if (requests.get(i).getReqStatus() == RequestStatus.PENDING) {
                 System.out.println(requests.get(i).toString());
@@ -197,7 +197,7 @@ public class FYPCoordinator extends Supervisor {
     }
 
     public void viewRequestOfType(RequestType requestType){
-        List<Request> requests = this.GetIncomingRequest();
+        List<Request> requests = this.getIncomingRequest();
         for(Request request : requests){
             if(request.getReqType() == requestType){
                 System.out.println(request.toString());
@@ -207,7 +207,7 @@ public class FYPCoordinator extends Supervisor {
 
     public List<Request> getPendingRequestOfType(RequestType requestType){
         List<Request> requestList = new ArrayList<>();
-        List<Request> requests = this.GetIncomingRequest();
+        List<Request> requests = this.getIncomingRequest();
         for(Request request : requests){
             if(request.getReqType() == requestType && request.getReqStatus() == RequestStatus.PENDING){
                 requestList.add(request);

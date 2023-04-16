@@ -9,14 +9,31 @@ import Entity.Project;
 import Controller.Supervisor;
 import Entity.*;
 import Database.*;
-
+/**
+ * This represents the Supervisor Module which will be accessed when the user logs in using a Supervisor Account
+ *
+ * Upon successful login as Supervisor, the user will be presented with options available to a Supervisor
+ *
+ * @author Ian Sim, Tan Ding Jiang
+ * @version 1.0.0 Apr 15, 2023
+ */
 public class SupervisorModule {
+    /**
+     * Valid Supervisor account needed
+     */
     private Supervisor supervisor;
 
+    /**
+     * Creates a new SupervisorModule
+     * @param supervisor - required parameter for accessing student's information for later methods
+     */
     public SupervisorModule(Supervisor supervisor){
         this.supervisor = supervisor;
     }
 
+    /**
+     * Displays the menu and redirects user
+     */
     public void run(){
         Scanner sc = new Scanner(System.in);
 
