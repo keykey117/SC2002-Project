@@ -82,11 +82,18 @@ public class Supervisor extends User {
     }
 
     public void PrintAllRequest() {
-        // Implement the logic to return a list of requests handled by the supervisor.
+        // Implement the logic to return a list of requests handled by the supervisor. (Excluding that of capacity of FYPCoordinator)
         System.out.println("ALL INCOMING REQUESTS:\n");
-        List<Request> incomingRequests = this.getIncomingRequest();
-        for (int i = 0; i < incomingRequests.size(); i++) {
-            System.out.println(incomingRequests.get(i).toString());
+        List<Request> incomingRequests = this.GetIncomingRequest();
+        List<Request> filteredRequests = new ArrayList<>();
+        // Check request type, keeping only those of type change title
+        for(Request request : incomingRequests){
+            if(request.getReqType() == RequestType.CHANGE_TITLE){
+                filteredRequests.add(request);
+            }
+        }
+        for (int i = 0; i < filteredRequests.size(); i++) {
+            System.out.println(filteredRequests.get(i).toString());
         }
         System.out.println("ALL OUTGOING REQUESTS:\n");
         List<Request> outgoingRequests = this.getOutgoingRequest();

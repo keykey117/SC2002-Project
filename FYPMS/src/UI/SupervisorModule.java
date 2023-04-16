@@ -37,7 +37,7 @@ public class SupervisorModule {
     public void run(){
         Scanner sc = new Scanner(System.in);
 
-        // Choices supervisor can make
+        // Choices supervisor can makex
         int choice = -1;
         while (choice != 9) {
             System.out.println("\n--------------Supervisor Panel--------------");
