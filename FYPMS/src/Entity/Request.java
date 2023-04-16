@@ -1,6 +1,8 @@
 package Entity;
+import Controller.ProjectController;
 import Enum.RequestStatus;
 import Enum.RequestType;
+
 /**
  * This class represents a Request object which is used to request changes to a Project's properties.
  * The Request object stores the details of the request such as the SenderID, ReceiverID, RequestType,
@@ -137,6 +139,9 @@ public class Request {
             sb.append("Change FYP supervisor");
         }
         sb.append('\n');
+        sb.append("FROM: ").append(this.senderID).append('\n');
+        sb.append("TO: ").append(this.receiverID).append('\n');
+        sb.append("Project ID:" + this.projectID + '\n');
         sb.append("REQUEST STATUS: ");
         if (this.reqStatus == RequestStatus.PENDING) {
             sb.append("PENDING");

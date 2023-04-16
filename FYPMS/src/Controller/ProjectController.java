@@ -26,7 +26,7 @@ public class ProjectController {
         }
     }
 
-    private Project getProjectByID(int projectID) {
+    public Project getProjectByID(int projectID) {
         // Assume there is a list of all projects called "allProjects"
         for (Project project : FYPDB.getInstance().getProjects()) {
             if (project.getProjectID() == projectID) {
