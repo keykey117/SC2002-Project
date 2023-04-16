@@ -29,6 +29,9 @@ public class Supervisor extends User {
         Supervisor supervisor = this;
         Project project = new Project(projectID, supervisor, title);
         projectList.add(project);
+        if (this.projCount > 2) {
+            this.makeProjectUnavailable();
+        }
 
     }
 
