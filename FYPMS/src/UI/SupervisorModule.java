@@ -163,6 +163,9 @@ public class SupervisorModule {
                         FYPCoordinatorModule fypCoordinatorModule = new FYPCoordinatorModule((FYPCoordinator) supervisor);
                         fypCoordinatorModule.run();
                     }
+                    else {
+                        System.out.println("You are not authorized to access this");
+                    }
                     break;
                 case 9:
                     System.out.println("Signing out of supervisor module...");
