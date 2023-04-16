@@ -187,8 +187,15 @@ public class FYPCoordinator extends Supervisor {
     public void PrintAllRequest() {
         // Implement logic to return a list of all requests handled by the FYP coordinator (Excluding that of capacity of supervisor)
         System.out.println("ALL REQUESTS:\n");
-        for (int i = 0; i < this.allRequest.size(); i++) {
-            System.out.println(this.allRequest.get(i).toString());
+        List<Request> requests = this.allRequest;
+        List<Request> filteredRequests = new ArrayList<>();
+        for(Request request : filteredRequests){
+            if(request.getReqType() == RequestType.CHANGE_TITLE && request.getReqType() == RequestType.CHANGE_SUPERVISOR){
+                filteredRequests.add(request);
+            }
+        }
+        for (int i = 0; i < filteredRequests.size(); i++) {
+            System.out.println(filteredRequests.get(i).toString());
         }
     }
 
