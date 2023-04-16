@@ -24,8 +24,18 @@ public class FYPCoordinatorModule{
             System.out.println("\n--------------FYP Coordinator Panel--------------");
             System.out.println("Option Available: (1-6):");
             System.out.println("(1) View all projects");
-            System.out.println("(2) View all pending request");
-            System.out.println("(3) Approve/Reject Requests");
+            if(this.fypCoordinator.hasPendingRequests()){
+                System.out.println("(2) View all pending request (NEW)");
+            }
+            else {
+                System.out.println("(2) View all pending request");
+            }
+            if(this.fypCoordinator.hasPendingRequests()){
+                System.out.println("(3) Approve/Reject Requests (NEW)");
+            }
+            else {
+                System.out.println("(3) Approve/Reject Requests");
+            }
 //            System.out.println("(2) Change supervisor");
 //            System.out.println("(3) Allocate Project to Student");
 //            System.out.println("(4) Deregister project");

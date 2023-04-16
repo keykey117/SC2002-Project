@@ -47,7 +47,17 @@ public class SupervisorModule {
             System.out.println("(3) Modify own Project Title");
             System.out.println("(4) Add new Project");
             System.out.println("(5) Request to change Supervisor");
-            System.out.println("(6) Approve/Reject Requests");
+            if(supervisor instanceof FYPCoordinator){
+                if(((FYPCoordinator) supervisor).hasSupRolePendingRequests()){
+                    System.out.println("(6) Approve/Reject Requests (NEW)");
+                }
+            }
+            else if(supervisor.hasPendingRequests()){
+                System.out.println("(6) Approve/Reject Requests (NEW)");
+            }
+            else{
+                System.out.println("(6) Approve/Reject Requests");
+            }
             System.out.println("(7) View all requests made");
             System.out.println("(8) Enter FYP Module (ONLY FYPCOORDINATOR)");
             System.out.println("(9) Quit Supervisor Panel");
@@ -135,7 +145,7 @@ public class SupervisorModule {
                     }
                     else{
                         supervisor.printPendingRequests();
-                        if(supervisor.hasPendingRequests()){
+                        if(!supervisor.hasPendingRequests()){
                             break;
                         }
                     }

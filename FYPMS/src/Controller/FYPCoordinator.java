@@ -169,7 +169,6 @@ public class FYPCoordinator extends Supervisor {
             }
         }
         for (int i = 0; i < filteredRequests.size(); i++) {
-            System.out.println("NEW: ");
             System.out.println(filteredRequests.get(i).toString());
         }
         if(flag == 0){
@@ -200,7 +199,6 @@ public class FYPCoordinator extends Supervisor {
             }
         }
         for (int i = 0; i < filteredRequests.size(); i++) {
-            System.out.println("NEW: ");
             System.out.println(filteredRequests.get(i).toString());
         }
         if(flag == 0){
@@ -219,6 +217,16 @@ public class FYPCoordinator extends Supervisor {
 //            System.out.println("No pending requests");
 //        }
 
+    }
+
+    public boolean hasPendingRequests() {
+        List<Request> requests = this.getIncomingRequest();
+        for (int i = 0; i < requests.size(); i++) {
+            if (requests.get(i).getReqStatus() == RequestStatus.PENDING && requests.get(i).getReqType() != RequestType.CHANGE_TITLE) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
