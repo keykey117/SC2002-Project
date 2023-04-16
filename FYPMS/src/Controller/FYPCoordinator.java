@@ -157,16 +157,21 @@ public class FYPCoordinator extends Supervisor {
         }
     }
 
-//    public void printPendingRequests() {
-//        // Implement logic to return a list of pending requests sent by supervisors and students
-//        List<Request> requests = this.GetIncomingRequest();
-//        for (int i = 0; i < requests.size(); i++) {
-//            if (requests.get(i).getReqStatus() == RequestStatus.PENDING) {
-//                System.out.println(requests.get(i).toString());
-//            }
-//        }
-//
-//    }
+    public void printPendingRequests() {
+        // Implement logic to return a list of pending requests sent by supervisors and students
+        int flag = 0;
+        List<Request> requests = this.GetIncomingRequest();
+        for (int i = 0; i < requests.size(); i++) {
+            if (requests.get(i).getReqStatus() == RequestStatus.PENDING) {
+                System.out.println(requests.get(i).toString());
+                flag = 1;
+            }
+        }
+        if(flag == 0){
+            System.out.println("No pending requests");
+        }
+
+    }
 
     public void approve(Request request) {
         // Implement logic to approve the request sent by a supervisor or a student
@@ -200,11 +205,11 @@ public class FYPCoordinator extends Supervisor {
         }
     }
 
-    public List<Request> getRequestOfType(RequestType requestType){
+    public List<Request> getPendingRequestOfType(RequestType requestType){
         List<Request> requestList = new ArrayList<>();
         List<Request> requests = this.GetIncomingRequest();
         for(Request request : requests){
-            if(request.getReqType() == requestType){
+            if(request.getReqType() == requestType && request.getReqStatus() == RequestStatus.PENDING){
                 requestList.add(request);
             }
         }
