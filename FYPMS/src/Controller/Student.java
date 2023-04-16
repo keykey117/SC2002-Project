@@ -2,8 +2,6 @@ package Controller;
 
 import java.util.List;
 
-import Controller.FYPCoordinator;
-import Controller.Supervisor;
 import Entity.*;
 import Enum.*;
 import Database.*;
@@ -90,7 +88,7 @@ public class Student extends User {
     public void PrintAllRequest() {
         // Implement logic to return a list of all requests outgoing by Student
         System.out.println("ALL REQUESTS\n");
-        List<Request> outgoingRequest = this.GetOutgoingRequest();
+        List<Request> outgoingRequest = this.getOutgoingRequest();
         for (int i = 0; i < outgoingRequest.size(); i++) {
             System.out.println(outgoingRequest.get(i).toString());
         }

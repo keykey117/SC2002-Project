@@ -2,12 +2,24 @@ package UI;
 
 import java.util.Scanner;
 import Database.*;
+/**
+ * Main function and landing page for users. Users will be able to select if they would like to login or quit
+ * @author Tan Ding Jiang
+ * @version 1.0.0 Apr 16, 2023
+ */
 public class FYPManagementSystem {
-
+    /**
+     * This is the entry point for the FYP Management System program
+     */
     public static void main(String[] args) {
+        /**
+         * Loads the DB upon starting program
+         */
         FYPDB.getInstance();
         Scanner sc = new Scanner(System.in);
-
+        /**
+         * Loads a new LoginModule upon startup
+         */
         LoginModule loginModule = new LoginModule();
         System.out.println("Welcome to our FYPManager program");
         int loginChoice = 0;

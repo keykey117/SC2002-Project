@@ -1,7 +1,9 @@
 package Enum;//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
+/**
+ * This is an enum class which represents the RequestType for Request objects
+ * @author Tham Key Yew
+ * @version 1.0.0 Apr 15, 2023
+ */
 
 public enum RequestType {
     CHANGE_TITLE,

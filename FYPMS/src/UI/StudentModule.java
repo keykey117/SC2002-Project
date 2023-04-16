@@ -1,4 +1,12 @@
 package UI;
+/**
+ * This represents the Student Module which will be accessed when the user logs in using a Student Account
+ *
+ * Upon succesful login as Student, the user will be presented with options available to a Student
+ *
+ * @author Ian Sim, Tan Ding Jiang
+ * @version 1.0.0 Apr 15, 2023
+ */
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -10,10 +18,22 @@ import Database.*;
 import Enum.ProjectStatus;
 
 public class StudentModule {
+    /**
+     * Valid Student account needed
+     */
     private Student student;
+
+    /**
+     * Creates a new StudentModule
+     * @param student   required parameter for accessing student's information for later methods
+     */
     public StudentModule(Student student){
         this.student = student;
     }
+
+    /**
+     * Displays the menu and redirects user
+     */
     public void run(){
         Scanner sc = new Scanner(System.in);
 
@@ -23,7 +43,7 @@ public class StudentModule {
         int choice = -1;
         while (choice != 8) {
             System.out.println("\n--------------Student Panel--------------");
-            System.out.println("Option Available: (1-6):");
+            System.out.println("Option Available: (1-8):");
             System.out.println("(1) Change Password");
             System.out.println("(2) View available projects");
             System.out.println("(3) Request Project to send to Coordinator");

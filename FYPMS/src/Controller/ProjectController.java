@@ -5,7 +5,6 @@ import Entity.Project;
 import Database.*;
 
 public class ProjectController {
-    //todo
 
     public void changeTitle(int projectID, String newTitle) {
         Project project = getProjectByID(projectID);

@@ -62,7 +62,7 @@ public class Supervisor extends User {
 
     public void PrintPendingRequestsFromStudents() {
         // Implement the logic to return a list of pending requests from students.
-        List<Request> requests = this.GetIncomingRequest();
+        List<Request> requests = this.getIncomingRequest();
         for (int i = 0; i < requests.size(); i++) {
             if (requests.get(i).getReqStatus() == RequestStatus.PENDING) {
                 requests.get(i).toString();
@@ -96,7 +96,7 @@ public class Supervisor extends User {
             System.out.println(filteredRequests.get(i).toString());
         }
         System.out.println("ALL OUTGOING REQUESTS:\n");
-        List<Request> outgoingRequests = this.GetOutgoingRequest();
+        List<Request> outgoingRequests = this.getOutgoingRequest();
         for (int i =0; i < outgoingRequests.size(); i++) {
             System.out.println(outgoingRequests.get(i).toString());
         }

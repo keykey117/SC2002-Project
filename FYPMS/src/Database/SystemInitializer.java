@@ -11,7 +11,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class provides static methods for initializing the system with data from external files.
+ * @author Ian Sim
+ * @version 1.0.0 Apr 16, 2023
+ */
 public class SystemInitializer {
+
+    /**
+     * Reads the provided 'student_list.txt' file and returns a list of Student objects.
+     *
+     * @param filePath The path to the file containing the list of students.
+     * @return A List of Student objects representing the students in the file.
+     */
     public static List<Student> initializeStudentList(String filePath) {
         // Implement logic to read the provided 'student_list.txt' file and return a list of Student objects
         List<Student> studentList = new ArrayList<>();
@@ -35,6 +47,13 @@ public class SystemInitializer {
 
         return studentList;
     }
+
+    /**
+     * Reads the provided file containing the list of faculty members and returns a list of Supervisor objects.
+     *
+     * @param filePath The path to the file containing the list of faculty members.
+     * @return A List of Supervisor objects representing the faculty members in the file.
+     */
     public static List<Supervisor> initializeFacultyList(String filePath) {
         List<Supervisor> facultyList = new ArrayList<>();
 
@@ -59,7 +78,12 @@ public class SystemInitializer {
     }
 
 
-
+    /**
+     * Reads the provided 'rolloverproject.xlsx' file and returns a list of Project objects.
+     *
+     * @param filePath The path to the file containing the list of projects.
+     * @return A List of Project objects representing the projects in the file.
+     */
     public static List<Project> initializeProjectList(String filePath) {
         // Implement logic to read the provided 'rolloverproject.xlsx' file and return a list of Project objects
         List<Project> projectList = new ArrayList<>();
@@ -86,6 +110,12 @@ public class SystemInitializer {
         return projectList;
     }
 
+    /**
+     * Reads the provided 'FYPCoordinators.xlsx' file and returns an FYPCoordinator object.
+     *
+     * @param filePath The path to the file containing the FYPCoordinator information.
+     * @return A List of FYPCoordinator objects representing the FYPCoordinators in the file.
+     */
     public static List<FYPCoordinator> initializeFYPCoordinatorList(String filePath) {
         // Implement logic to read the provided 'FYPCoordinators.xlsx' file and return an FYPCoordinator object
         List<FYPCoordinator> fypCoordinatorList = new ArrayList<>();
