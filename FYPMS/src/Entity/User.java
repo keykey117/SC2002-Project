@@ -58,13 +58,6 @@ public class User {
     public String getName() {
         return name;
     }
-    /**
-     * Sets this User's name
-     * @param name new name of the User
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 
     /**
      * Gets this User's email
@@ -142,19 +135,6 @@ public class User {
      */
     public Request getSpecificIncomingRequest(int reqID){
         for (Request request: this.getIncomingRequest()){
-            if (request.getReqID() == reqID){
-                return request;
-            }
-        }
-        return null;
-    }
-    /**
-     * Get specific Outgoing Request based on the reqID
-     * @param reqID - reqID of the specific req
-     * @return Request - the User's request as specified by reqID
-     */
-    public Request getSpecificOutgoingRequest(int reqID){
-        for (Request request: this.getOutgoingRequest()){
             if (request.getReqID() == reqID){
                 return request;
             }

@@ -82,15 +82,6 @@ public class FYPDB {
     }
 
     /**
-     * Adds a project to the list of projects in the system.
-     *
-     * @param project the project to add.
-     */
-    public void addProject(Project project){
-        this.projects.add(project);
-    }
-
-    /**
      * Returns the list of FYP coordinators in the system.
      *
      * @return the list of FYP coordinators in the system.

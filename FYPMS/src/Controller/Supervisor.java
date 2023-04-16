@@ -48,11 +48,6 @@ public class Supervisor extends User {
         }
     }
 
-    public void modifyTitle(Project project, String newTitle) {
-        project.setTitle(newTitle);
-    }
-
-
     public void requestStudentTransfer(int projectID, String supervisorID) {
         // Implement the logic to send a request to the FYP coordinator to transfer a student to a replacement supervisor.
         FYPCoordinator fypCoordinator = FYPDB.getInstance().getFypCoordinator().get(0);
@@ -82,17 +77,6 @@ public class Supervisor extends User {
         }
         return false;
     }
-
-    public void PrintPendingRequestsFromStudents() {
-        // Implement the logic to return a list of pending requests from students.
-        List<Request> requests = this.getIncomingRequest();
-        for (int i = 0; i < requests.size(); i++) {
-            if (requests.get(i).getReqStatus() == RequestStatus.PENDING) {
-                requests.get(i).toString();
-            }
-        }
-    }
-
 
     public void approveRequest_TitleChange(Request request) {
         // Implement the logic to approve the request made by a student.
@@ -124,12 +108,6 @@ public class Supervisor extends User {
         for (int i =0; i < outgoingRequests.size(); i++) {
             System.out.println(outgoingRequests.get(i).toString());
         }
-
-    }
-
-
-    // Getter and setter methods for the attributes
-    public void addAllProjects(){
 
     }
 

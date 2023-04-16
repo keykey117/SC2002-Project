@@ -78,12 +78,6 @@ public class Student extends User {
         fypCoordinator.addRequest(requestDeregisterFYP);
     }
 
-    public List<Request> viewRequestHistory() {
-        // Implement logic to return a list of requests made by the student
-
-        return null;
-    }
-
     @Override
     public void PrintAllRequest() {
         // Implement logic to return a list of all requests outgoing by Student

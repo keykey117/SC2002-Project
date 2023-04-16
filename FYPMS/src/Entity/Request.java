@@ -57,30 +57,7 @@ public class Request {
     public String getSenderID() {
         return this.senderID;
     }
-    /**
-     * Sets the ID of the user who made the request.
-     * @param senderID the ID of the user who made the request
-     */
-    public void setSenderID(String senderID) {
-        this.senderID = senderID;
-    }
-    /**
-     * Gets the ID of the user who will receive the request.
-     * @return the ID of the user who will receive the request
-     */
-    public String getReceiverID() {
-        return this.receiverID;
-    }
-    /**
-     * Sets the ID of the user who will receive the request.
-     * @param receiverID the ID of the user who will receive the request
-     */
-    public void setReceiverID(String receiverID) {
-        this.receiverID = receiverID;
-    }
-    /**
-     * Gets the ID of the FYP project associated with the request.@return the ID of the FYP project associated with the request
-     */
+
     public int getProjectID() {
         return this.projectID;
     }
@@ -98,13 +75,7 @@ public class Request {
     public RequestStatus getReqStatus() {
         return this.reqStatus;
     }
-    /**
-     * Sets the request status of this request object to the specified value.
-     * @param reqStatus the new request status
-     */
-    public void setReqStatus(RequestStatus reqStatus) {
-        this.reqStatus = reqStatus;
-    }
+
     /**
      * Returns the type of the request.
      * @return the type of the request
@@ -112,13 +83,7 @@ public class Request {
     public RequestType getReqType() {
         return this.reqType;
     }
-    /**
-     * Sets the type of the request.
-     * @param reqType the type of the request
-     */
-    public void setReqType(RequestType reqType) {
-        this.reqType = reqType;
-    }
+
     /**
      * Returns a string representation of the FYPRequest object, including the request ID,
      * request type, and request status.
