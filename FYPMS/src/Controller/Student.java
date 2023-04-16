@@ -1,6 +1,7 @@
 package Controller;
 
 import java.util.List;
+import java.util.Objects;
 
 import Entity.*;
 import Enum.*;
@@ -108,7 +109,9 @@ public class Student extends User {
         Request_ChangeTitle requestChangeTitle = new Request_ChangeTitle(this.getID(), supervisor.getID(), RequestType.CHANGE_TITLE,this.getProject().getProjectID(), newTitle);
         this.addOutgoingRequest(requestChangeTitle);
         supervisor.addIncomingRequest(requestChangeTitle);
-
+        if (Objects.equals(supervisor.getID(), "ASFLI")) {
+            fypCoordinator.addIncomingRequest(requestChangeTitle);
+        }
         fypCoordinator.addRequest(requestChangeTitle);
     }
 

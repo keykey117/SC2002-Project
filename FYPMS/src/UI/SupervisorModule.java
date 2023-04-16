@@ -51,6 +51,9 @@ public class SupervisorModule {
                 if(((FYPCoordinator) supervisor).hasSupRolePendingRequests()){
                     System.out.println("(6) Approve/Reject Requests (NEW)");
                 }
+                else {
+                    System.out.println("(6) Approve/Reject Requests");
+                }
             }
             else if(supervisor.hasPendingRequests()){
                 System.out.println("(6) Approve/Reject Requests (NEW)");
