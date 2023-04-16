@@ -131,7 +131,7 @@ public class StudentModule {
                     System.out.println("Your request have been successfully submitted!");
                     break;
                 case 6:
-                    student.PrintAllRequest();
+                    student.printAllRequest();
                     break;
                 case 7:
                     student.requestDeregistration();

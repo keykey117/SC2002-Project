@@ -230,7 +230,7 @@ public class FYPCoordinator extends Supervisor {
     /**
      * Prints all requests handled by FYP coordinator, excluding capacity of supervisor
      */
-    public void PrintAllRequest() {
+    public void printAllRequest() {
         // Implement logic to return a list of all requests handled by the FYP coordinator (Excluding that of capacity of supervisor)
         System.out.println("ALL REQUESTS:\n");
         List<Request> requests = this.allRequest;

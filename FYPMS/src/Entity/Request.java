@@ -10,9 +10,10 @@ import Enum.RequestType;
  * @author Tham Key Yew
  * @version 1.0.0 Apr 16, 2023
  */
-
 public class Request {
-
+    /**
+     * A static variable that keeps track of the total number of requests made
+    */
     public static int numRequest = 0;
     private int reqID;
     private String senderID;
@@ -58,6 +59,10 @@ public class Request {
         return this.senderID;
     }
 
+    /**
+     * Gets the projectID of the request .
+     * @return the projectID of the request
+     */
     public int getProjectID() {
         return this.projectID;
     }
