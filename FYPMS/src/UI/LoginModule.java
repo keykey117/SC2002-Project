@@ -3,7 +3,10 @@ package UI;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import Entity.*;
+
+import Controller.FYPCoordinator;
+import Controller.Student;
+import Controller.Supervisor;
 import Database.*;
 
 public class LoginModule{

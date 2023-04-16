@@ -3,7 +3,9 @@ package UI;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import Entity.*;
+
+import Controller.Student;
+import Entity.Project;
 import Database.*;
 import Enum.ProjectStatus;
 

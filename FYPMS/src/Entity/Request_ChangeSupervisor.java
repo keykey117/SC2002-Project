@@ -2,6 +2,8 @@ package Entity;//
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //
+import Controller.ProjectController;
+import Controller.Supervisor;
 import Enum.*;
 import Database.*;
 
@@ -18,8 +20,8 @@ public class Request_ChangeSupervisor extends Request {
         FYPDB fypdb = FYPDB.getInstance();
         Supervisor newSupervisor = fypdb.getSupervisor(this.replacementSupervisor);
         Supervisor oldSupervisor = fypdb.getSupervisor(this.getSenderID());
-        Project project = fypdb.getProjectByID(this.getProjectID());
-        project.setSupervisor(newSupervisor);
+        ProjectController projectController = new ProjectController();
+        projectController.changeSupervisor(this.getProjectID(),newSupervisor);
 
         // check whether NEW supervisor has more than 2 projects
         newSupervisor.addProjCount();

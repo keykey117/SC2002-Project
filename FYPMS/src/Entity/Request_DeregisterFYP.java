@@ -2,6 +2,8 @@ package Entity;//
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //
+import Controller.Student;
+import Controller.Supervisor;
 import Enum.*;
 import Database.*;
 

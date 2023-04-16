@@ -1,8 +1,8 @@
 package Database;
 
-import Entity.Student;
-import Entity.FYPCoordinator;
-import Entity.Supervisor;
+import Controller.Student;
+import Controller.FYPCoordinator;
+import Controller.Supervisor;
 import Entity.Project;
 
 import java.io.BufferedReader;

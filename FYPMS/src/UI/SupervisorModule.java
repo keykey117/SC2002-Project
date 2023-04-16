@@ -3,6 +3,10 @@ package UI;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+
+import Controller.FYPCoordinator;
+import Entity.Project;
+import Controller.Supervisor;
 import Entity.*;
 import Database.*;
 

@@ -2,6 +2,7 @@ package Entity;//
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //
+import Controller.ProjectController;
 import Enum.*;
 import Database.*;
 
@@ -15,9 +16,8 @@ public class Request_ChangeTitle extends Request {
 
     public void approve() {
         super.approve();
-        FYPDB fypdb = FYPDB.getInstance();
-        Project project = fypdb.getProjectByID(this.getProjectID());
-        project.setTitle(newTitle);
+        ProjectController projectController = new ProjectController();
+        projectController.changeTitle(this.getProjectID(), newTitle);
 
     }
 

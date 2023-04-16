@@ -1,6 +1,9 @@
-package Entity;
+package Controller;
 
 import java.util.*;
+
+import Entity.Project;
+import Entity.Request;
 import Enum.*;
 import Database.*;
 public class FYPCoordinator extends Supervisor {

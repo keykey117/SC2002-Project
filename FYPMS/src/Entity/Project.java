@@ -1,4 +1,6 @@
 package Entity;
+import Controller.Student;
+import Controller.Supervisor;
 import Enum.ProjectStatus;
 public class Project {
     private int projectID;

@@ -1,10 +1,9 @@
 package Database;
-import Entity.*;
 import java.util.ArrayList;
 import java.util.List;
-import Entity.Student;
-import Entity.Supervisor;
-import Entity.FYPCoordinator;
+import Controller.Student;
+import Controller.Supervisor;
+import Controller.FYPCoordinator;
 import Entity.Project;
 
 public class FYPDB {

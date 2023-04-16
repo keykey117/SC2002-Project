@@ -1,7 +1,12 @@
-package Entity;
+package Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Entity.Project;
+import Entity.Request;
+import Entity.Request_ChangeSupervisor;
+import Entity.User;
 import Enum.*;
 import Database.*;
 

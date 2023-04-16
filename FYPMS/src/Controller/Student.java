@@ -1,6 +1,10 @@
-package Entity;
+package Controller;
 
 import java.util.List;
+
+import Controller.FYPCoordinator;
+import Controller.Supervisor;
+import Entity.*;
 import Enum.*;
 import Database.*;
 public class Student extends User {
