@@ -1,16 +1,17 @@
-1|A S Madhukumar|Machine Learning-based Interference Mitigation in a Multi-tier Networks
-2|A S Madhukumar|Deep Learning-Driven Edge Caching for 5G-and-Beyond Industrial IoT Networks
-3|Alexei Sourin|Sonification of geometry 1
-4|Arvind Easwaran|Edge/Cloud Resource Management for Time-Sensitive Applications (2)
-5|Bo An|Deep Reinforcement Learning for Complex Environment
-6|Bo An|Build Software Agents for Power Trading Agent Competition
-7|Bo An|Designing Negotiation Agents to Parcitipate in International Competition
-8|Cai Wentong|Creation of Meta-model for Agent-based Simulation Using Machine Learning Approach
-9|Chen Change Loy|Encoding Images to Text Prompts with CLIP
-10|Chia Liang Tien|Smart Monitor for Studio Photographer
-11|Cong Gao|Developing a demonstration system for spatial data exploration and visualization
-12|Cong Gao|Deep Learning Supported Location-aware Keyword Query
-13|Douglas Leslie Maskell|An AI based Li-ion fast battery charger for power tools
-14|Douglas Leslie Maskell|A Li-ion fast battery charger
-15|Dusit Niyato|Metaverse for virtual education 1
-16|Ke Yiping, Kelly|Graph-based Deep Models for Image Semantic Segmentation
+ProjectID|ProjectSupervisor|ProjectSupervisorEmail|ProjectTitle
+1|A S Madhukumar|ASMADHUKUMAR@NTU.EDU.SG|Machine Learning-based Interference Mitigation in a Multi-tier Networks
+2|A S Madhukumar|ASMADHUKUMAR@NTU.EDU.SG|Deep Learning-Driven Edge Caching for 5G-and-Beyond Industrial IoT Networks
+3|Alexei Sourin|ASSOURIN@ntu.edu.sg|Sonification of geometry 1
+4|Arvind Easwaran|ARVINDE@NTU.EDU.SG|Edge/Cloud Resource Management for Time-Sensitive Applications (2)
+5|Bo An|BOAN@NTU.EDU.SG|Deep Reinforcement Learning for Complex Environment
+6|Bo An|BOAN@NTU.EDU.SG|Build Software Agents for Power Trading Agent Competition
+7|Bo An|BOAN@NTU.EDU.SG|Designing Negotiation Agents to Parcitipate in International Competition
+8|Cai Wentong|ASWTCAI@ntu.edu.sg|Creation of Meta-model for Agent-based Simulation Using Machine Learning Approach
+9|Chen Change Loy|CCLOY@NTU.EDU.SG|Encoding Images to Text Prompts with CLIP
+10|Chia Liang Tien|ASLTCHIA@ntu.edu.sg|Smart Monitor for Studio Photographer
+11|Cong Gao|GAOCONG@NTU.EDU.SG|Developing a demonstration system for spatial data exploration and visualization
+12|Cong Gao|GAOCONG@NTU.EDU.SG|Deep Learning Supported Location-aware Keyword Query
+13|Douglas Leslie Maskell|ASDOUGLAS@NTU.EDU.SG|An AI based Li-ion fast battery charger for power tools
+14|Douglas Leslie Maskell|ASDOUGLAS@NTU.EDU.SG|A Li-ion fast battery charger
+15|Dusit Niyato|DNIYATO@NTU.EDU.SG|Metaverse for virtual education 1
+16|Ke Yiping, Kelly|YPKE@NTU.EDU.SG|Graph-based Deep Models for Image Semantic Segmentation
